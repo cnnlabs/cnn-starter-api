@@ -1,3 +1,23 @@
+## 2017-10-19, Version 1.0.0, @adslaton
+
+### Notable changes
+
+- Use cnn-server and apollo-server-express
+- Add LICENSE.md
+
+### Known issues
+
+See https://github.com/cnnlabs/cnn-hapi/labels/defect for complete and
+current list of known issues.
+
+
+### Commits
+
+* [[`01cc757eb5`](https://github.com/cnnlabs/cnn-starter-api/commit/01cc757eb5)] - Merge pull request #5 from cnnlabs/feature/cnn-server (A.D. Slaton)
+* [[`1293a756bd`](https://github.com/cnnlabs/cnn-starter-api/commit/1293a756bd)] - add license and post requests to /graphql (A.D. Slaton)
+* [[`77752f5c80`](https://github.com/cnnlabs/cnn-starter-api/commit/77752f5c80)] - using route endpoints from the config file (Joshua David Clayton)
+* [[`3c57b48961`](https://github.com/cnnlabs/cnn-starter-api/commit/3c57b48961)] - use cnn-server and apollo-server-express (Joshua David Clayton)
+
 ## 2017-10-19, Version 0.1.3, @adslaton
 
 ### Notable changes
