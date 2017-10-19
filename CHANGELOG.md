@@ -1,3 +1,22 @@
+## 2017-10-19, Version 0.1.3, @adslaton
+
+### Notable changes
+
+- Correct the reference for resolvers and schemas
+
+
+### Known issues
+
+See https://github.com/cnnlabs/cnn-hapi/labels/defect for complete and
+current list of known issues.
+
+
+### Commits
+
+* [[`4f51aea800`](https://github.com/cnnlabs/cnn-starter-api/commit/4f51aea800)] - Merge pull request #4 from cnnlabs/feature/correct-server-config (A.D. Slaton)
+* [[`29ba1d66f6`](https://github.com/cnnlabs/cnn-starter-api/commit/29ba1d66f6)] - fix the reference to the schema and resolver modules (A.D. Slaton)
+
+
 ## 2017-10-19, Version 0.1.2, @adslaton
 
 ### Notable changes
