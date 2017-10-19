@@ -1,8 +1,7 @@
-const // server = require('cnn-server'),
-    server = require('express')(),
+const server = require('cnn-server'),
     cors = require('cors'),
-    graphQLTools = require('graphql-tools'),
-    GraphQLServer = require('graphql-server-express'),
+    { makeExecutableSchema } = require('graphql-tools'),
+    { graphqlExpress, graphiqlExpress } = require('apollo-server-express'),
     opticsAgent = require('optics-agent'),
     bodyParser = require('body-parser'),
     surrogateCacheControl = process.env.SURROGATE_CACHE_CONTROL || 'max-age=60, stale-while-revalidate=10, stale-if-error=6400',
@@ -27,68 +26,83 @@ function init(appConfig) {
     const config = Object.assign({}, defaultConfig, appConfig),
         schemas = config.schemas || require('./defaults/schemas'),
         resolvers = config.resolvers || require('./defaults/resolvers'),
-        executableSchema = graphQLTools.makeExecutableSchema({
+        executableSchema = makeExecutableSchema({
             typeDefs: schemas,
             resolvers: resolvers
         });
 
+    let sigsciMiddleware = function sigsciMiddleware(req, res, next) {
+        return next();
+    }
+
     if (enableSigSci) {
-        sigsci = new SigSci({
+        sigsciMiddleware = new SigSci({
             host: process.env.SIGSCI_AGENT_HOST,
             port: (process.env.SIGSCI_AGENT_PORT && parseInt(process.env.SIGSCI_AGENT_PORT, 10)) || 80,
             maxPostSize: (process.env.SIGSCI_MAX_POST_SIZE && parseInt(process.env.SIGSCI_MAX_POST_SIZE, 10)) || 100000,
             socketTimeout: (process.env.SIGSCI_TIMEOUT && parseInt(process.env.SIGSCI_TIMEOUT, 10)) || 100
         }).express();
-
-        server.use(sigsci);
     }
 
-    // Healthcheck route
-    server.use(config.healthcheck, (req, res) => {
-        let date = new Date(),
-            now = date.getTime(),
-            diff = now - hcStart || now,
-            data = {
-                name: pkg.name,
-                version: pkg.version,
-                env: process.env.ENVIRONMENT || 'local',
-                epochMs: now,
-                uptime: diff,
-                utcDate: date.toUTCString()
-            };
-
-        res.status(200).json(data);
-    });
-
-    server.use(config.routes.graphql,
-        headerMiddleware,
-        bodyParser.json(),
-        GraphQLServer.graphqlExpress((req) => {
-            let graphqlConfig = {
-                schema: executableSchema,
-                context: {
-                    opticsContext: opticsAgent.context(req)
-                }
-            };
-
-            if (disableIntrospection) {
-                graphqlConfig.validationRules = [NoIntrospection];
+    const serverConfig = {
+        logging: {
+            console: {
+                logLevel: 'info'
             }
+        },
+        enableCompression: true,
+        middleware: [
+            headerMiddleware,
+            bodyParser.json(),
+            sigsciMiddleware
+        ],
+        routes: [
+            {
+                path: config.routes.graphql,
+                handler: graphqlExpress(req => {
+                    let graphqlConfig = {
+                        schema: executableSchema,
+                        context: {
+                            opticsContext: opticsAgent.context(req)
+                        }
+                    };
 
-            return graphqlConfig;
-        })
-    );
+                    if (disableIntrospection) {
+                        graphqlConfig.validationRules = [NoIntrospection];
+                    }
 
-    server.use(config.routes.graphiql,
-        GraphQLServer.graphiqlExpress({
-            endpointURL: config.routes.graphql,
-            passHeader: `"${apiGatewayKeyName}": "${apiGatewayKey}"`
-        })
-    );
+                    return graphqlConfig;
+                })
+            },
+            {
+                path: config.routes.graphql,
+                handler: graphqlExpress(req => {
+                    let graphqlConfig = {
+                        schema: executableSchema,
+                        context: {
+                            opticsContext: opticsAgent.context(req)
+                        }
+                    };
 
-    server.listen(port, () => {
-        console.log(`Server is now running on PORT ${port}`);
-    });
+                    if (disableIntrospection) {
+                        graphqlConfig.validationRules = [NoIntrospection];
+                    }
+
+                    return graphqlConfig;
+                }),
+                method: 'post'
+            },
+            {
+                path: config.routes.graphiql,
+                handler: graphiqlExpress({
+                    endpointURL: config.routes.graphql,
+                    passHeader: `"${apiGatewayKeyName}": "${apiGatewayKey}"`
+                })
+            }
+        ]
+    };
+
+    server(serverConfig);
 }
 
-module.exports = {init};
+module.exports = { init };
