@@ -2,11 +2,10 @@
   "name": "cnn-starter-api",
   "version": "0.0.1",
   "description": "Service that powers CNN APIs",
-  "private": true,
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "test": "node example.js",
-    "generate-changelog": "changelog-maker --group"
+    "changelog": "changelog-maker --group"
   },
   "repository": {
     "type": "git",

@@ -60,12 +60,6 @@ server.init({
     graphqlRoute: '/my_graphql',
     graphiqlRoute: '/my_graphiql',
     resolversPath: './resolvers',
-    schemasPath: './schemas',
-    routes: [
-        {
-            path: '/baz',
-            handler: (req, res) => send(res, 'Hello World!')
-        }
-    ]
+    schemasPath: './schemas'
 });
 ```
