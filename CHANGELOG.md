@@ -1,3 +1,21 @@
+## 2017-10-19, Version 0.1.1, @adslaton
+
+### Notable changes
+
+- Readme updates
+
+
+### Known issues
+
+See https://github.com/cnnlabs/cnn-hapi/labels/defect for complete and
+current list of known issues.
+
+
+### Commits
+
+* [[`a409c6eef7`](https://github.com/cnnlabs/cnn-starter-api/commit/a409c6eef7)] - Merge pull request #2 from cnnlabs/feature/pass-modules (A.D. Slaton)
+* [[`116f15465d`](https://github.com/cnnlabs/cnn-starter-api/commit/116f15465d)] - pass in resolver and schema modules (A.D. Slaton)
+
 ## 2017-10-18, Version 0.0.2, @adslaton
 
 ### Notable changes
