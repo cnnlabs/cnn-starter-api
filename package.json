@@ -1,6 +1,6 @@
 {
   "name": "cnn-starter-api",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Service that powers CNN APIs",
   "main": "index.js",
   "scripts": {

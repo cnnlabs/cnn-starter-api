@@ -5,38 +5,47 @@ An API starter package for CNN
 
 ## Variables and overrides
 
-### API_GATEWAY_KEY
+#### API_GATEWAY_KEY
 
 The key for the API Gateway
 
-### API_GATEWAY_KEYNAME
+#### API_GATEWAY_KEYNAME
 
 The key name for the API Gateway
 
-### CACHE_CONTROL (Browser caching)
+#### CACHE_CONTROL (Browser caching)
 
 default = max-age=60
 
-### ENABLE_SIGSCI (Controls the Signal Science module)
+#### ENABLE_SIGSCI (Controls the Signal Science module)
 
 default = false
 
-### NO_INTROSPECTION
+#### NO_INTROSPECTION
 
 default = true
 
-### SIGSCI_AGENT_HOST
+#### SIGSCI_AGENT_HOST
 
 default = undefined
 
-### SIGSCI_AGENT_PORT
+#### SIGSCI_AGENT_PORT
 
 default = 80
 
-### SURROGATE_CACHE_CONTROL (Fastly Header)
+#### SURROGATE_CACHE_CONTROL (Fastly Header)
 
 default = max-age=60, stale-while-revalidate=10, stale-if-error=6400
 
+## Initialize
+
+```
+const server = require('cnn-starter-api');
+
+...
+
+server.init();
+```
 
 ## Default server config
 
