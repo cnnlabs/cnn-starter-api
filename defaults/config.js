@@ -1,5 +1,4 @@
 module.exports = {
-    healthcheck: '/_healthcheck',
     routes: {
         graphql: '/graphql',
         graphiql: '/graphiql'

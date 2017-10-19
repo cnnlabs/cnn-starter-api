@@ -12,15 +12,16 @@
     "url": "https://github.com/cnnlabs/cnn-starter-api"
   },
   "dependencies": {
+    "apollo-server-express": "1.1.7",
+    "apollo-server-hapi": "1.1.7",
     "body-parser": "1.18.2",
     "cnn-logger": "1.5.0",
     "cnn-metrics": "0.5.0",
-    "cnn-server": "git+https://github.com/cnnlabs/cnn-server.git#0.2.2",
+    "cnn-server": "git+https://github.com/cnnlabs/cnn-server.git#0.3.0",
     "cors": "2.8.4",
     "express": "4.16.1",
     "graphql": "0.11.6",
     "graphql-disable-introspection": "1.0.1",
-    "graphql-server-express": "1.1.2",
     "graphql-tools": "1.2.3",
     "graphql-type-json": "0.1.4",
     "optics-agent": "1.1.7",
@@ -31,6 +32,6 @@
     "changelog-maker": "2.2.6"
   },
   "engines": {
-    "node": "8.7.0"
+    "node": ">=8.7.0"
   }
 }

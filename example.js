@@ -1,8 +1,3 @@
-const server = require('./index.js');
+const { init } = require('./index.js');
 
-server.init({
-    routes: {
-        graphql: '/graphql',
-        graphiql: '/graphiql'
-    }
-});
+init();
