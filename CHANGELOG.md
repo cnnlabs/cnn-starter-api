@@ -1,3 +1,22 @@
+## 2017-10-19, Version 0.1.2, @adslaton
+
+### Notable changes
+
+- Reorganize the readme
+
+
+### Known issues
+
+See https://github.com/cnnlabs/cnn-hapi/labels/defect for complete and
+current list of known issues.
+
+
+### Commits
+
+* [[`3c99bfc205`](https://github.com/cnnlabs/cnn-starter-api/commit/3c99bfc205)] - Merge pull request #3 from cnnlabs/feature/readme-reorg (A.D. Slaton)
+* [[`b9315b25ab`](https://github.com/cnnlabs/cnn-starter-api/commit/b9315b25ab)] - reorg the readme (A.D. Slaton)
+
+
 ## 2017-10-19, Version 0.1.1, @adslaton
 
 ### Notable changes
