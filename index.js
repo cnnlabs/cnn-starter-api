@@ -75,6 +75,24 @@ function init(appConfig) {
                 })
             },
             {
+                path: config.routes.graphql,
+                handler: graphqlExpress(req => {
+                    let graphqlConfig = {
+                        schema: executableSchema,
+                        context: {
+                            opticsContext: opticsAgent.context(req)
+                        }
+                    };
+
+                    if (disableIntrospection) {
+                        graphqlConfig.validationRules = [NoIntrospection];
+                    }
+
+                    return graphqlConfig;
+                }),
+                method: 'post'
+            },
+            {
                 path: config.routes.graphiql,
                 handler: graphiqlExpress({
                     endpointURL: config.routes.graphql,
