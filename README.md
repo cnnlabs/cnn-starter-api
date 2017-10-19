@@ -51,10 +51,15 @@ server.init();
 
 ```
 {
-    graphqlRoute: '/graphql',
-    graphiqlRoute: '/graphiql',
-    resolversPath: './defaults/resolvers',
-    schemasPath: './defaults/schemas'
+    healthcheck: '/_healthcheck',
+    routes: {
+        graphql: '/graphql',
+        graphiql: '/graphiql'
+    },
+    paths: {
+        resolvers: './defaults/resolvers',
+        schemas: './defaults/schemas'
+    }
 }
 ```
 
@@ -66,9 +71,13 @@ const server = require('cnn-starter-api');
 ...
 
 server.init({
-    graphqlRoute: '/my_graphql',
-    graphiqlRoute: '/my_graphiql',
-    resolversPath: './resolvers',
-    schemasPath: './schemas'
+    routes: {
+        graphql: '/my_graphql',
+        graphiql: '/my_graphiql'
+    },
+    paths: {
+        resolvers: './resolvers',
+        schemas: './schemas'
+    }
 });
 ```
