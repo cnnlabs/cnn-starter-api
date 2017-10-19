@@ -25,8 +25,8 @@ const headerMiddleware = (req, res, next) => {
 
 function init(appConfig) {
     const config = Object.assign({}, defaultConfig, appConfig),
-        schemas = require(config.schemasPath),
-        resolvers = require(config.resolversPath),
+        schemas = require(config.paths.schemas),
+        resolvers = require(config.paths.resolvers),
         executableSchema = graphQLTools.makeExecutableSchema({
             typeDefs: schemas,
             resolvers: resolvers
@@ -43,11 +43,28 @@ function init(appConfig) {
         server.use(sigsci);
     }
 
-    server.use(config.graphqlRoute,
+    // Healthcheck route
+    server.use(config.healthcheck, (req, res) => {
+        let date = new Date(),
+            now = date.getTime(),
+            diff = now - hcStart || now,
+            data = {
+                name: pkg.name,
+                version: pkg.version,
+                env: process.env.ENVIRONMENT || 'local',
+                epochMs: now,
+                uptime: diff,
+                utcDate: date.toUTCString()
+            };
+
+        res.status(200).json(data);
+    });
+
+    server.use(config.routes.graphql,
         headerMiddleware,
         bodyParser.json(),
         GraphQLServer.graphqlExpress((req) => {
-            let config = {
+            let graphqlConfig = {
                 schema: executableSchema,
                 context: {
                     opticsContext: opticsAgent.context(req)
@@ -55,16 +72,16 @@ function init(appConfig) {
             };
 
             if (disableIntrospection) {
-                config.validationRules = [NoIntrospection];
+                graphqlConfig.validationRules = [NoIntrospection];
             }
 
-            return config;
+            return graphqlConfig;
         })
     );
 
-    server.use(config.graphiqlRoute,
+    server.use(config.routes.graphiql,
         GraphQLServer.graphiqlExpress({
-            endpointURL: config.graphqlRoute,
+            endpointURL: config.routes.graphql,
             passHeader: `"${apiGatewayKeyName}": "${apiGatewayKey}"`
         })
     );

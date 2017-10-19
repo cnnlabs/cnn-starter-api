@@ -1,6 +1,11 @@
 module.exports = {
-    graphqlRoute: '/graphql',
-    graphiqlRoute: '/graphiql',
-    resolversPath: './defaults/resolvers',
-    schemasPath: './defaults/schemas'
+    healthcheck: '/_healthcheck',
+    routes: {
+        graphql: '/graphql',
+        graphiql: '/graphiql'
+    },
+    paths: {
+        resolvers: './defaults/resolvers',
+        schemas: './defaults/schemas'
+    }
 };
