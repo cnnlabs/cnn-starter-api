@@ -25,8 +25,8 @@ const headerMiddleware = (req, res, next) => {
 
 function init(appConfig) {
     const config = Object.assign({}, defaultConfig, appConfig),
-        schemas = require(config.paths.schemas),
-        resolvers = require(config.paths.resolvers),
+        schemas = config.schemas || require('./defaults/schemas'),
+        resolvers = config.resolvers || require('./defaults/resolvers'),
         executableSchema = graphQLTools.makeExecutableSchema({
             typeDefs: schemas,
             resolvers: resolvers
@@ -87,8 +87,6 @@ function init(appConfig) {
     );
 
     server.listen(port, () => {
-        console.log(`Server config:`)
-        console.log(config);
         console.log(`Server is now running on PORT ${port}`);
     });
 }
