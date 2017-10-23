@@ -18,10 +18,18 @@ init();
 ```
 {
     healthcheck: '/_healthcheck',
-    routes: {
+    paths: {
         graphql: '/graphql',
         graphiql: '/graphiql'
     },
+    routes: [
+        {
+            path: '/',
+            handler: function (req, res, next) {
+                res.send('Hello');
+            }
+        }
+    ],
     resolvers: require('./resolvers'),  // 'cnn-starter-api/defaults/resolvers'
     schemas: require('./schemas')       // 'cnn-starter-api/defaults/schemas'
 }
@@ -39,7 +47,7 @@ init({
     middleware: [
         myMiddleware
     ],
-    routes: {
+    paths: {
         graphql: '/my_graphql',
         graphiql: '/my_graphiql'
     },

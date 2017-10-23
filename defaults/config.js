@@ -6,7 +6,7 @@ module.exports = {
     },
     routes: [
         {
-            path: '/hello',
+            path: '/',
             handler: function (req, res, next) {
                 res.send('Hello');
             }
