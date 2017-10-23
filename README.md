@@ -47,6 +47,30 @@ init({
 });
 ```
 
+## Run The Example
+
+```
+$ npm run test
+
+> node example.js
+
+2017-10-23T16:43:10.641Z - important: Initializing Logging subsystem...
+2017-10-23T16:43:10.643Z - info: Running self check: info
+2017-10-23T16:43:10.643Z - warn: Running self check: warn
+2017-10-23T16:43:10.644Z - error: Running self check: error
+2017-10-23T16:43:10.644Z - fatal: Running self check: fatal
+2017-10-23T16:43:10.644Z - important: Running self check: important
+2017-10-23T16:43:10.644Z - warn: NODE_ENV undefined should be one of production,development,staging,test
+2017-10-23T16:43:10.683Z - important: Registering middleware: headerMiddleware
+2017-10-23T16:43:10.684Z - important: Registering middleware: jsonParser
+2017-10-23T16:43:10.684Z - important: Registering middleware: myMiddleware
+2017-10-23T16:43:10.690Z - info: Registering route: path: /_healthcheck, method: get
+2017-10-23T16:43:10.690Z - info: Registering route: path: /graphql, method: get
+2017-10-23T16:43:10.690Z - info: Registering route: path: /graphql, method: post
+2017-10-23T16:43:10.690Z - info: Registering route: path: /graphiql, method: get
+2017-10-23T16:43:10.700Z - important: Service started on port: 5050
+```
+
 
 ## Variables and overrides
 
