@@ -1,3 +1,25 @@
+## 2017-10-23, Version 1.1.0, @adslaton
+
+### Notable changes
+
+- Remove hard coded sigsci module
+- Add test to the README
+
+### Known issues
+
+See https://github.com/cnnlabs/cnn-hapi/labels/defect for complete and
+current list of known issues.
+
+
+### Commits
+
+* [[`1cfb48320b`](https://github.com/cnnlabs/cnn-starter-api/commit/1cfb48320b)] - Merge pull request #6 from cnnlabs/feature/move-sigsci-out (A.D. Slaton)
+* [[`6b0a089546`](https://github.com/cnnlabs/cnn-starter-api/commit/6b0a089546)] - remove sigsci env variables (A.D. Slaton)
+* [[`c3092b1973`](https://github.com/cnnlabs/cnn-starter-api/commit/c3092b1973)] - Add test to the README (A.D. Slaton)
+* [[`bafb191b05`](https://github.com/cnnlabs/cnn-starter-api/commit/bafb191b05)] - update readme (A.D. Slaton)
+* [[`1d2c0c3e62`](https://github.com/cnnlabs/cnn-starter-api/commit/1d2c0c3e62)] - remove hard coded sigsci module (A.D. Slaton)
+
+
 ## 2017-10-19, Version 1.0.0, @adslaton
 
 ### Notable changes
