@@ -35,9 +35,10 @@ const { init } = require('cnn-starter-api');
 ...
 
 init({
+    executableSchema: executableSchema,  // resolvers and schemas are ignored if this is set
     middleware: [
         myMiddleware
-    ]
+    ],
     routes: {
         graphql: '/my_graphql',
         graphiql: '/my_graphiql'
@@ -47,7 +48,7 @@ init({
 });
 ```
 
-## Run The Example
+## Run the example
 
 ```
 $ npm run test

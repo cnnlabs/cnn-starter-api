@@ -24,7 +24,7 @@ function init(appConfig) {
     const config = Object.assign({}, defaultConfig, appConfig),
         schemas = config.schemas || require('./defaults/schemas'),
         resolvers = config.resolvers || require('./defaults/resolvers'),
-        executableSchema = makeExecutableSchema({
+        executableSchema = config.executableSchema || makeExecutableSchema({
             typeDefs: schemas,
             resolvers: resolvers
         });
