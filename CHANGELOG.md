@@ -1,3 +1,22 @@
+## 2017-10-23, Version 1.3.0, @adslaton
+
+### Notable changes
+
+- Allow additional configurable routes
+
+### Known issues
+
+See https://github.com/cnnlabs/cnn-hapi/labels/defect for complete and
+current list of known issues.
+
+
+### Commits
+
+* [[`3a487f3cb0`](https://github.com/cnnlabs/cnn-starter-api/commit/3a487f3cb0)] - Merge pull request #8 from cnnlabs/feature/configurable-routes (A.D. Slaton)
+* [[`3de53b2223`](https://github.com/cnnlabs/cnn-starter-api/commit/3de53b2223)] - update the readme and the default config (A.D. Slaton)
+* [[`581c184d8b`](https://github.com/cnnlabs/cnn-starter-api/commit/581c184d8b)] - allow additional configurable routes (A.D. Slaton)
+
+
 ## 2017-10-23, Version 1.2.0, @adslaton
 
 ### Notable changes
