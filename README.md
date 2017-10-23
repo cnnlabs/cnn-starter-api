@@ -86,21 +86,9 @@ The key name for the API Gateway
 
 default = max-age=60
 
-#### ENABLE_SIGSCI (Controls the Signal Science module)
-
-default = false
-
 #### NO_INTROSPECTION
 
 default = true
-
-#### SIGSCI_AGENT_HOST
-
-default = undefined
-
-#### SIGSCI_AGENT_PORT
-
-default = 80
 
 #### SURROGATE_CACHE_CONTROL (Fastly Header)
 
