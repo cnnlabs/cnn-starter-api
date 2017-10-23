@@ -6,11 +6,11 @@ An API starter package for CNN
 ## Initialize
 
 ```
-const server = require('cnn-starter-api');
+const { init } = require('cnn-starter-api');
 
 ...
 
-server.init();
+init();
 ```
 
 ## Default server config
@@ -22,19 +22,22 @@ server.init();
         graphql: '/graphql',
         graphiql: '/graphiql'
     },
-    resolvers: require('./resolvers'), // './defaults/resolvers'
-    schemas: require('./schemas') // './defaults/schemas'
+    resolvers: require('./resolvers'),  // 'cnn-starter-api/defaults/resolvers'
+    schemas: require('./schemas')       // 'cnn-starter-api/defaults/schemas'
 }
 ```
 
 The defaults can be overridden when initializing a server instance
 
 ```
-const server = require('cnn-starter-api');
+const { init } = require('cnn-starter-api');
 
 ...
 
-server.init({
+init({
+    middleware: [
+        myMiddleware
+    ]
     routes: {
         graphql: '/my_graphql',
         graphiql: '/my_graphiql'
