@@ -1,3 +1,21 @@
+## 2017-10-23, Version 1.2.0, @adslaton
+
+### Notable changes
+
+- Allow executable schema to be passed during server initialization
+
+### Known issues
+
+See https://github.com/cnnlabs/cnn-hapi/labels/defect for complete and
+current list of known issues.
+
+
+### Commits
+
+* [[`63b1cb3ddc`](https://github.com/cnnlabs/cnn-starter-api/commit/63b1cb3ddc)] - Merge pull request #7 from cnnlabs/feature/allow-executable-schema-to-be-passed (A.D. Slaton)
+* [[`45709c261e`](https://github.com/cnnlabs/cnn-starter-api/commit/45709c261e)] - update the readme (A.D. Slaton)
+
+
 ## 2017-10-23, Version 1.1.0, @adslaton
 
 ### Notable changes
