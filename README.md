@@ -6,11 +6,11 @@ An API starter package for CNN
 ## Initialize
 
 ```
-const server = require('cnn-starter-api');
+const { init } = require('cnn-starter-api');
 
 ...
 
-server.init();
+init();
 ```
 
 ## Default server config
@@ -22,19 +22,22 @@ server.init();
         graphql: '/graphql',
         graphiql: '/graphiql'
     },
-    resolvers: require('./resolvers'), // './defaults/resolvers'
-    schemas: require('./schemas') // './defaults/schemas'
+    resolvers: require('./resolvers'),  // 'cnn-starter-api/defaults/resolvers'
+    schemas: require('./schemas')       // 'cnn-starter-api/defaults/schemas'
 }
 ```
 
 The defaults can be overridden when initializing a server instance
 
 ```
-const server = require('cnn-starter-api');
+const { init } = require('cnn-starter-api');
 
 ...
 
-server.init({
+init({
+    middleware: [
+        myMiddleware
+    ]
     routes: {
         graphql: '/my_graphql',
         graphiql: '/my_graphiql'
@@ -42,6 +45,30 @@ server.init({
     resolvers: require('./path/to/my/resolvers'),
     schemas: require('./path/to/my/schemas')
 });
+```
+
+## Run The Example
+
+```
+$ npm run test
+
+> node example.js
+
+2017-10-23T16:43:10.641Z - important: Initializing Logging subsystem...
+2017-10-23T16:43:10.643Z - info: Running self check: info
+2017-10-23T16:43:10.643Z - warn: Running self check: warn
+2017-10-23T16:43:10.644Z - error: Running self check: error
+2017-10-23T16:43:10.644Z - fatal: Running self check: fatal
+2017-10-23T16:43:10.644Z - important: Running self check: important
+2017-10-23T16:43:10.644Z - warn: NODE_ENV undefined should be one of production,development,staging,test
+2017-10-23T16:43:10.683Z - important: Registering middleware: headerMiddleware
+2017-10-23T16:43:10.684Z - important: Registering middleware: jsonParser
+2017-10-23T16:43:10.684Z - important: Registering middleware: myMiddleware
+2017-10-23T16:43:10.690Z - info: Registering route: path: /_healthcheck, method: get
+2017-10-23T16:43:10.690Z - info: Registering route: path: /graphql, method: get
+2017-10-23T16:43:10.690Z - info: Registering route: path: /graphql, method: post
+2017-10-23T16:43:10.690Z - info: Registering route: path: /graphiql, method: get
+2017-10-23T16:43:10.700Z - important: Service started on port: 5050
 ```
 
 
@@ -59,21 +86,9 @@ The key name for the API Gateway
 
 default = max-age=60
 
-#### ENABLE_SIGSCI (Controls the Signal Science module)
-
-default = false
-
 #### NO_INTROSPECTION
 
 default = true
-
-#### SIGSCI_AGENT_HOST
-
-default = undefined
-
-#### SIGSCI_AGENT_PORT
-
-default = 80
 
 #### SURROGATE_CACHE_CONTROL (Fastly Header)
 

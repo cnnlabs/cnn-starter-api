@@ -7,8 +7,6 @@ const server = require('cnn-server'),
     surrogateCacheControl = process.env.SURROGATE_CACHE_CONTROL || 'max-age=60, stale-while-revalidate=10, stale-if-error=6400',
     cacheControlHeader = process.env.CACHE_CONTROL || 'max-age=60',
     NoIntrospection = require('graphql-disable-introspection'),
-    SigSci = new require('sigsci-module-nodejs'),
-    enableSigSci = ((process.env.ENABLE_SIGSCI ? process.env.ENABLE_SIGSCI.toLowerCase() : 'false') === 'true'),
     defaultConfig = require('./defaults/config.js'),
     port = process.env.PORT || '5000',
     apiGatewayKey = process.env.API_GATEWAY_KEY,
@@ -31,17 +29,14 @@ function init(appConfig) {
             resolvers: resolvers
         });
 
-    let sigsciMiddleware = function sigsciMiddleware(req, res, next) {
-        return next();
-    }
+    let middleware = [
+        headerMiddleware,
+        bodyParser.json()
+    ];
 
-    if (enableSigSci) {
-        sigsciMiddleware = new SigSci({
-            host: process.env.SIGSCI_AGENT_HOST,
-            port: (process.env.SIGSCI_AGENT_PORT && parseInt(process.env.SIGSCI_AGENT_PORT, 10)) || 80,
-            maxPostSize: (process.env.SIGSCI_MAX_POST_SIZE && parseInt(process.env.SIGSCI_MAX_POST_SIZE, 10)) || 100000,
-            socketTimeout: (process.env.SIGSCI_TIMEOUT && parseInt(process.env.SIGSCI_TIMEOUT, 10)) || 100
-        }).express();
+    // Add middleware
+    for (let i = 0; i < config.middleware.length; i++) {
+        middleware.push(config.middleware[i]);
     }
 
     const serverConfig = {
@@ -51,11 +46,7 @@ function init(appConfig) {
             }
         },
         enableCompression: true,
-        middleware: [
-            headerMiddleware,
-            bodyParser.json(),
-            sigsciMiddleware
-        ],
+        middleware: middleware,
         routes: [
             {
                 path: config.routes.graphql,
