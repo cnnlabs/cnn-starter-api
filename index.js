@@ -27,29 +27,16 @@ function init(appConfig) {
         executableSchema = config.executableSchema || makeExecutableSchema({
             typeDefs: schemas,
             resolvers: resolvers
-        });
+        }),
+        configRoutes = config.routes || [];
 
     let middleware = [
-        headerMiddleware,
-        bodyParser.json()
-    ];
-
-    // Add middleware
-    for (let i = 0; i < config.middleware.length; i++) {
-        middleware.push(config.middleware[i]);
-    }
-
-    const serverConfig = {
-        logging: {
-            console: {
-                logLevel: 'info'
-            }
-        },
-        enableCompression: true,
-        middleware: middleware,
-        routes: [
+            headerMiddleware,
+            bodyParser.json()
+        ],
+        routes = [
             {
-                path: config.routes.graphql,
+                path: config.paths.graphql,
                 handler: graphqlExpress(req => {
                     let graphqlConfig = {
                         schema: executableSchema,
@@ -66,7 +53,7 @@ function init(appConfig) {
                 })
             },
             {
-                path: config.routes.graphql,
+                path: config.paths.graphql,
                 handler: graphqlExpress(req => {
                     let graphqlConfig = {
                         schema: executableSchema,
@@ -84,13 +71,32 @@ function init(appConfig) {
                 method: 'post'
             },
             {
-                path: config.routes.graphiql,
+                path: config.paths.graphiql,
                 handler: graphiqlExpress({
                     endpointURL: config.routes.graphql,
                     passHeader: `"${apiGatewayKeyName}": "${apiGatewayKey}"`
                 })
             }
-        ]
+        ];
+
+    for (let i = 0; i < configRoutes.length; i++) {
+        routes.push(configRoutes[i]);
+    }
+
+    // Add middleware
+    for (let i = 0; i < config.middleware.length; i++) {
+        middleware.push(config.middleware[i]);
+    }
+
+    const serverConfig = {
+        logging: {
+            console: {
+                logLevel: 'info'
+            }
+        },
+        enableCompression: true,
+        middleware: middleware,
+        routes: routes
     };
 
     server(serverConfig);
