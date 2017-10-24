@@ -73,7 +73,7 @@ function init(appConfig) {
             {
                 path: config.paths.graphiql,
                 handler: graphiqlExpress({
-                    endpointURL: config.routes.graphql,
+                    endpointURL: config.paths.graphql,
                     passHeader: `"${apiGatewayKeyName}": "${apiGatewayKey}"`
                 })
             }
