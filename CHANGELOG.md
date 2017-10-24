@@ -6,7 +6,7 @@
 
 ### Known issues
 
-See https://github.com/cnnlabs/cnn-hapi/labels/defect for complete and
+See https://github.com/cnnlabs/cnn-starter-api/labels/defect for complete and
 current list of known issues.
 
 
@@ -25,7 +25,7 @@ current list of known issues.
 
 ### Known issues
 
-See https://github.com/cnnlabs/cnn-hapi/labels/defect for complete and
+See https://github.com/cnnlabs/cnn-starter-api/labels/defect for complete and
 current list of known issues.
 
 
@@ -44,7 +44,7 @@ current list of known issues.
 
 ### Known issues
 
-See https://github.com/cnnlabs/cnn-hapi/labels/defect for complete and
+See https://github.com/cnnlabs/cnn-starter-api/labels/defect for complete and
 current list of known issues.
 
 
@@ -66,7 +66,7 @@ current list of known issues.
 
 ### Known issues
 
-See https://github.com/cnnlabs/cnn-hapi/labels/defect for complete and
+See https://github.com/cnnlabs/cnn-starter-api/labels/defect for complete and
 current list of known issues.
 
 
@@ -86,7 +86,7 @@ current list of known issues.
 
 ### Known issues
 
-See https://github.com/cnnlabs/cnn-hapi/labels/defect for complete and
+See https://github.com/cnnlabs/cnn-starter-api/labels/defect for complete and
 current list of known issues.
 
 
@@ -105,7 +105,7 @@ current list of known issues.
 
 ### Known issues
 
-See https://github.com/cnnlabs/cnn-hapi/labels/defect for complete and
+See https://github.com/cnnlabs/cnn-starter-api/labels/defect for complete and
 current list of known issues.
 
 
@@ -124,7 +124,7 @@ current list of known issues.
 
 ### Known issues
 
-See https://github.com/cnnlabs/cnn-hapi/labels/defect for complete and
+See https://github.com/cnnlabs/cnn-starter-api/labels/defect for complete and
 current list of known issues.
 
 
@@ -142,7 +142,7 @@ current list of known issues.
 
 ### Known issues
 
-See https://github.com/cnnlabs/cnn-hapi/labels/defect for complete and
+See https://github.com/cnnlabs/cnn-starter-api/labels/defect for complete and
 current list of known issues.
 
 
@@ -160,7 +160,7 @@ current list of known issues.
 
 ### Known issues
 
-See https://github.com/cnnlabs/cnn-hapi/labels/defect for complete and
+See https://github.com/cnnlabs/cnn-starter-api/labels/defect for complete and
 current list of known issues.
 
 

@@ -17,7 +17,6 @@ init();
 
 ```
 {
-    healthcheck: '/_healthcheck',
     paths: {
         graphql: '/graphql',
         graphiql: '/graphiql'
