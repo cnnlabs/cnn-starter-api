@@ -1,3 +1,15 @@
+## 2017-10-23, Version 1.3.1, @adslaton
+
+### Notable changes
+
+- README and CHANGELOG updates
+
+### Known issues
+
+See https://github.com/cnnlabs/cnn-starter-api/labels/defect for complete and
+current list of known issues.
+
+
 ## 2017-10-23, Version 1.3.0, @adslaton
 
 ### Notable changes
