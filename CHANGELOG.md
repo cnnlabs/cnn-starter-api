@@ -1,3 +1,15 @@
+## 2017-10-24, Version 1.5.0, @adslaton
+
+### Notable changes
+
+- Add cnn-server to the package.json
+
+### Known issues
+
+See https://github.com/cnnlabs/cnn-starter-api/labels/defect for complete and
+current list of known issues.
+
+
 ## 2017-10-24, Version 1.4.0, @adslaton
 
 ### Notable changes
