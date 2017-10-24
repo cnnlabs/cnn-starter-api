@@ -1,3 +1,27 @@
+## 2017-10-24, Version 1.6.1, @adslaton
+
+### Notable changes
+
+- Remove the package-lock.json file
+
+### Known issues
+
+See https://github.com/cnnlabs/cnn-starter-api/labels/defect for complete and
+current list of known issues.
+
+
+## 2017-10-24, Version 1.6.0, @adslaton
+
+### Notable changes
+
+- Add package-lock.json to .gitignore
+
+### Known issues
+
+See https://github.com/cnnlabs/cnn-starter-api/labels/defect for complete and
+current list of known issues.
+
+
 ## 2017-10-24, Version 1.5.0, @adslaton
 
 ### Notable changes
