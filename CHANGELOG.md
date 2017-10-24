@@ -1,4 +1,25 @@
-## 2017-10-23, Version 1.3.1, @adslaton
+## 2017-10-24, Version 1.4.0, @adslaton
+
+### Notable changes
+
+- Bump graphql-tools to 2.6.1
+
+### Known issues
+
+See https://github.com/cnnlabs/cnn-starter-api/labels/defect for complete and
+current list of known issues.
+
+
+### Commits
+
+* [[`a0bd8d187e`](https://github.com/cnnlabs/cnn-starter-api/commit/a0bd8d187e)] - Merge pull request #9 from cnnlabs/feature/grapqhql-tools-2.6.1 (A.D. Slaton)
+* [[`909590bcb9`](https://github.com/cnnlabs/cnn-starter-api/commit/909590bcb9)] - update package-lock.json (A.D. Slaton)
+* [[`cbdf525223`](https://github.com/cnnlabs/cnn-starter-api/commit/cbdf525223)] - bump other deps (A.D. Slaton)
+* [[`e504cabd07`](https://github.com/cnnlabs/cnn-starter-api/commit/e504cabd07)] - bump graphql-tools to 2.6.1 (A.D. Slaton)
+* [[`f86db53791`](https://github.com/cnnlabs/cnn-starter-api/commit/f86db53791)] - CHANGELOG update (A.D. Slaton)
+
+
+## 2017-10-24, Version 1.3.1, @adslaton
 
 ### Notable changes
 
