@@ -1,18 +1,17 @@
-const server = require('cnn-server'),
-    cors = require('cors'),
-    { makeExecutableSchema } = require('graphql-tools'),
-    { graphqlExpress, graphiqlExpress } = require('apollo-server-express'),
-    opticsAgent = require('optics-agent'),
-    bodyParser = require('body-parser'),
-    surrogateCacheControl = process.env.SURROGATE_CACHE_CONTROL || 'max-age=60, stale-while-revalidate=10, stale-if-error=6400',
-    cacheControlHeader = process.env.CACHE_CONTROL || 'max-age=60',
-    NoIntrospection = require('graphql-disable-introspection'),
-    defaultConfig = require('./defaults/config.js'),
-    port = process.env.PORT || '5000',
-    apiGatewayKey = process.env.API_GATEWAY_KEY,
-    apiGatewayKeyName = process.env.API_GATEWAY_KEYNAME;
+const CNNServer = require('cnn-server');
+const cors = require('cors');
+const { makeExecutableSchema } = require('graphql-tools');
+const { graphqlExpress, graphiqlExpress } = require('apollo-server-express');
+const opticsAgent = require('optics-agent');
+const bodyParser = require('body-parser');
+const NoIntrospection = require('graphql-disable-introspection');
 
+const port = process.env.PORT || '5000';
+const apiGatewayKey = process.env.API_GATEWAY_KEY;
+const apiGatewayKeyName = process.env.API_GATEWAY_KEYNAME;
 const disableIntrospection = process.env.NO_INTROSPECTION === 'true';
+const surrogateCacheControl = process.env.SURROGATE_CACHE_CONTROL || 'max-age=60, stale-while-revalidate=10, stale-if-error=6400';
+const cacheControlHeader = process.env.CACHE_CONTROL || 'max-age=60';
 
 const headerMiddleware = (req, res, next) => {
     res.setHeader('Cache-Control', cacheControlHeader);
@@ -20,86 +19,43 @@ const headerMiddleware = (req, res, next) => {
     return next();
 };
 
-function init(appConfig) {
-    const config = Object.assign({}, defaultConfig, appConfig),
-        schemas = config.schemas || require('./defaults/schemas'),
-        resolvers = config.resolvers || require('./defaults/resolvers'),
-        executableSchema = config.executableSchema || makeExecutableSchema({
-            typeDefs: schemas,
-            resolvers: resolvers
-        }),
-        configRoutes = config.routes || [];
-
-    let middleware = [
-            headerMiddleware,
-            bodyParser.json()
-        ],
-        routes = [
-            {
-                path: config.paths.graphql,
-                handler: graphqlExpress(req => {
-                    let graphqlConfig = {
-                        schema: executableSchema,
-                        context: {
-                            opticsContext: opticsAgent.context(req)
-                        }
-                    };
-
-                    if (disableIntrospection) {
-                        graphqlConfig.validationRules = [NoIntrospection];
-                    }
-
-                    return graphqlConfig;
-                })
-            },
-            {
-                path: config.paths.graphql,
-                handler: graphqlExpress(req => {
-                    let graphqlConfig = {
-                        schema: executableSchema,
-                        context: {
-                            opticsContext: opticsAgent.context(req)
-                        }
-                    };
-
-                    if (disableIntrospection) {
-                        graphqlConfig.validationRules = [NoIntrospection];
-                    }
-
-                    return graphqlConfig;
-                }),
-                method: 'post'
-            },
-            {
-                path: config.paths.graphiql,
-                handler: graphiqlExpress({
-                    endpointURL: config.paths.graphql,
-                    passHeader: `"${apiGatewayKeyName}": "${apiGatewayKey}"`
-                })
-            }
-        ];
-
-    for (let i = 0; i < configRoutes.length; i++) {
-        routes.push(configRoutes[i]);
-    }
-
-    // Add middleware
-    for (let i = 0; i < config.middleware.length; i++) {
-        middleware.push(config.middleware[i]);
-    }
-
-    const serverConfig = {
-        logging: {
-            console: {
-                logLevel: 'info'
-            }
-        },
-        enableCompression: true,
-        middleware: middleware,
-        routes: routes
+const graphqlHandlerConf = req => {
+    let graphqlConfig = {
+        schema: executableSchema,
+        context: {
+            opticsContext: opticsAgent.context(req)
+        }
     };
 
-    server(serverConfig);
+    if (disableIntrospection) {
+        graphqlConfig.validationRules = [NoIntrospection];
+    }
+
+    return graphqlConfig;
 }
 
-module.exports = { init };
+class APIServer extends CNNServer {
+    constructor(config) {
+        super(config);
+        this.schemas = this.config.api.schemas || require('./defaults/schemas');
+        this.resolvers = this.config.api.resolvers || require('./defaults/resolvers');
+        this.config.api.paths = this.config.api.paths || {
+            graphql: '/graphql',
+            graphiql: '/graphiql'
+        },
+        this.executableSchema = this.config.executableSchema || makeExecutableSchema({
+            typeDefs: this.schemas,
+            resolvers: this.resolvers
+        });
+        this.app.use(headerMiddleware);
+        this.app.use(bodyParser.json());
+        this.app.get(this.config.api.paths.graphql, graphqlExpress(graphqlHandlerConf));
+        this.app.post(this.config.api.paths.graphql, graphqlExpress(graphqlHandlerConf));
+        this.app.get(this.config.api.paths.graphiql, graphiqlExpress({
+            endpointURL: this.config.api.paths.graphql,
+            passHeader: `"${apiGatewayKeyName}": "${apiGatewayKey}"`
+        });
+    }
+}
+
+module.exports = APIServer;
