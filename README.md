@@ -1,84 +1,29 @@
-# CNN Starter API
+# CNN GraphQL API
 
-An API starter package for CNN
+A GraphQL API server that extends [CNN Server](http://github.com/cnnlabs/cnn-server)
 
-
-## Initialize
-
-```
-const { init } = require('cnn-starter-api');
-
-...
-
-init();
-```
-
-## Default server config
+## Running
 
 ```
-{
-    paths: {
-        graphql: '/graphql',
-        graphiql: '/graphiql'
-    },
-    routes: [
-        {
-            path: '/',
-            handler: function (req, res, next) {
-                res.send('Hello');
-            }
-        }
-    ],
-    resolvers: require('./resolvers'),  // 'cnn-starter-api/defaults/resolvers'
-    schemas: require('./schemas')       // 'cnn-starter-api/defaults/schemas'
+const APIServer = require('cnn-starter-api');
+const apiServer = new APIServer(config);
+
+apiServer.start();
+
+```
+
+## Config
+
+See documentation for [CNN Server](http://github.com/cnnlabs/cnn-server) for the basic config options.
+
+An optional `api` property can be provided to the config to change the urls for graphql and graphiql. Defaults are:
+
+```
+api: {
+    graphql: '/graphql',
+    graphiql: '/graphiql'
 }
 ```
-
-The defaults can be overridden when initializing a server instance
-
-```
-const { init } = require('cnn-starter-api');
-
-...
-
-init({
-    executableSchema: executableSchema,  // resolvers and schemas are ignored if this is set
-    middleware: [
-        myMiddleware
-    ],
-    paths: {
-        graphql: '/my_graphql',
-        graphiql: '/my_graphiql'
-    },
-    resolvers: require('./path/to/my/resolvers'),
-    schemas: require('./path/to/my/schemas')
-});
-```
-
-## Run the example
-
-```
-$ npm run test
-
-> node example.js
-
-2017-10-23T16:43:10.641Z - important: Initializing Logging subsystem...
-2017-10-23T16:43:10.643Z - info: Running self check: info
-2017-10-23T16:43:10.643Z - warn: Running self check: warn
-2017-10-23T16:43:10.644Z - error: Running self check: error
-2017-10-23T16:43:10.644Z - fatal: Running self check: fatal
-2017-10-23T16:43:10.644Z - important: Running self check: important
-2017-10-23T16:43:10.644Z - warn: NODE_ENV undefined should be one of production,development,staging,test
-2017-10-23T16:43:10.683Z - important: Registering middleware: headerMiddleware
-2017-10-23T16:43:10.684Z - important: Registering middleware: jsonParser
-2017-10-23T16:43:10.684Z - important: Registering middleware: myMiddleware
-2017-10-23T16:43:10.690Z - info: Registering route: path: /_healthcheck, method: get
-2017-10-23T16:43:10.690Z - info: Registering route: path: /graphql, method: get
-2017-10-23T16:43:10.690Z - info: Registering route: path: /graphql, method: post
-2017-10-23T16:43:10.690Z - info: Registering route: path: /graphiql, method: get
-2017-10-23T16:43:10.700Z - important: Service started on port: 5050
-```
-
 
 ## Variables and overrides
 
