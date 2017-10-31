@@ -8,9 +8,7 @@ const server = require('cnn-server'),
     cacheControlHeader = process.env.CACHE_CONTROL || 'max-age=60',
     NoIntrospection = require('graphql-disable-introspection'),
     defaultConfig = require('./defaults/config.js'),
-    port = process.env.PORT || '5000',
-    apiGatewayKey = process.env.API_GATEWAY_KEY,
-    apiGatewayKeyName = process.env.API_GATEWAY_KEYNAME;
+    port = process.env.PORT || '5000';
 
 const disableIntrospection = process.env.NO_INTROSPECTION === 'true';
 
@@ -74,7 +72,7 @@ function init(appConfig) {
                 path: config.paths.graphiql,
                 handler: graphiqlExpress({
                     endpointURL: config.paths.graphql,
-                    passHeader: `"${apiGatewayKeyName}": "${apiGatewayKey}"`
+                    passHeader: config.headers.graphiql
                 })
             }
         ];

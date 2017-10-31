@@ -1,4 +1,7 @@
 module.exports = {
+    headers: {
+        graphiql: '"X-Starter-API": "Started"'
+    },
     middleware: [],
     paths: {
         graphql: '/graphql',
