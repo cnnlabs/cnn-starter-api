@@ -82,14 +82,6 @@ $ npm run test
 
 ## Variables and overrides
 
-#### API_GATEWAY_KEY
-
-The key for the API Gateway
-
-#### API_GATEWAY_KEYNAME
-
-The key name for the API Gateway
-
 #### CACHE_CONTROL (Browser caching)
 
 default = max-age=60
