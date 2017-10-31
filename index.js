@@ -4,13 +4,11 @@ const server = require('cnn-server'),
     { graphqlExpress, graphiqlExpress } = require('apollo-server-express'),
     opticsAgent = require('optics-agent'),
     bodyParser = require('body-parser'),
-    surrogateCacheControl = process.env.SURROGATE_CACHE_CONTROL || 'max-age=60, stale-while-revalidate=10, stale-if-error=6400',
-    cacheControlHeader = process.env.CACHE_CONTROL || 'max-age=60',
+    surrogateCacheControl = process.env.SURROGATE_CACHE_CONTROL || 'max-age=30, stale-while-revalidate=10, stale-if-error=6400',
+    cacheControlHeader = process.env.CACHE_CONTROL || 'no-cache',
     NoIntrospection = require('graphql-disable-introspection'),
     defaultConfig = require('./defaults/config.js'),
-    port = process.env.PORT || '5000',
-    apiGatewayKey = process.env.API_GATEWAY_KEY,
-    apiGatewayKeyName = process.env.API_GATEWAY_KEYNAME;
+    port = process.env.PORT || '5000';
 
 const disableIntrospection = process.env.NO_INTROSPECTION === 'true';
 
@@ -74,7 +72,7 @@ function init(appConfig) {
                 path: config.paths.graphiql,
                 handler: graphiqlExpress({
                     endpointURL: config.paths.graphql,
-                    passHeader: `"${apiGatewayKeyName}": "${apiGatewayKey}"`
+                    passHeader: config.headers.graphiql
                 })
             }
         ];
