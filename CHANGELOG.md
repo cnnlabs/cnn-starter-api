@@ -1,3 +1,20 @@
+## 2017-10-31, Version 1.7.0, @adslaton
+
+### Notable changes
+
+- Remove the package-lock.json file
+
+### Known issues
+
+See https://github.com/cnnlabs/cnn-starter-api/labels/defect for complete and
+current list of known issues.
+
+### Commits
+
+* [[`8e025d93e6`](https://github.com/cnnlabs/cnn-starter-api/commit/8e025d93e6)] - Merge pull request #13 from cnnlabs/feature/rm-hard-coded-header (A.D. Slaton)
+* [[`49406ffb8a`](https://github.com/cnnlabs/cnn-starter-api/commit/49406ffb8a)] - revising the cache control header defaults (A.D. Slaton)
+* [[`8041f653de`](https://github.com/cnnlabs/cnn-starter-api/commit/8041f653de)] - remove the hard coded header from the starter (A.D. Slaton)
+
 ## 2017-10-24, Version 1.6.1, @adslaton
 
 ### Notable changes
