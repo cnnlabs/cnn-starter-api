@@ -51,10 +51,7 @@ function init(appConfig) {
                 path: config.paths.graphql,
                 handler: graphqlExpress(req => {
                     let graphqlConfig = {
-                        schema: executableSchema,
-                        context: {
-                            opticsContext: opticsAgent.context(req)
-                        }
+                        schema: executableSchema
                     };
 
                     if (disableIntrospection) {
