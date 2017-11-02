@@ -18,7 +18,7 @@ const headerMiddleware = (req, res, next) => {
 };
 
 function init(appConfig) {
-    const config = Object.assign({}, defaultConfig, appConfig),
+    const config = Object.assign({}, defaultConfig(), appConfig),
         schemas = config.schemas || require('./defaults/schemas'),
         resolvers = config.resolvers || require('./defaults/resolvers'),
         executableSchema = config.executableSchema || makeExecutableSchema({
@@ -26,6 +26,10 @@ function init(appConfig) {
             resolvers: resolvers
         }),
         configRoutes = config.routes || [];
+
+    // Flags
+    const enableCors = config.flags.enableCors,
+        enableGraphiql = config.flags.graphiql;
 
     let middleware = [
             headerMiddleware,
@@ -61,15 +65,18 @@ function init(appConfig) {
                     return graphqlConfig;
                 }),
                 method: 'post'
-            },
-            {
-                path: config.paths.graphiql,
-                handler: graphiqlExpress({
-                    endpointURL: config.paths.graphql,
-                    passHeader: config.headers.graphiql
-                })
             }
         ];
+
+    if (enableGraphiql) {
+        routes.push({
+            path: config.paths.graphiql,
+            handler: graphiqlExpress({
+                endpointURL: config.paths.graphql,
+                passHeader: config.headers.graphiql
+            })
+        });
+    }
 
     for (let i = 0; i < configRoutes.length; i++) {
         routes.push(configRoutes[i]);
