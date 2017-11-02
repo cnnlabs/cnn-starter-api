@@ -2,7 +2,7 @@
 
 ### Notable changes
 
-- Remove the package-lock.json file
+- Remove the hard coded header from the starter
 
 ### Known issues
 
