@@ -1,3 +1,20 @@
+## 2017-11-01, Version 1.7.1, @adslaton
+
+### Notable changes
+
+- Enable cors support
+
+### Known issues
+
+See https://github.com/cnnlabs/cnn-starter-api/labels/defect for complete and
+current list of known issues.
+
+### Commits
+
+* [[`8b6c38d40a`](https://github.com/cnnlabs/cnn-starter-api/commit/8b6c38d40a)] - Merge pull request #14 from cnnlabs/feature/enable-cors (A.D. Slaton)
+* [[`4b086c4530`](https://github.com/cnnlabs/cnn-starter-api/commit/4b086c4530)] - actually use the cors module (A.D. Slaton)
+* [[`c59c3fc560`](https://github.com/cnnlabs/cnn-starter-api/commit/c59c3fc560)] - update readme (A.D. Slaton)
+
 ## 2017-10-31, Version 1.7.0, @adslaton
 
 ### Notable changes
