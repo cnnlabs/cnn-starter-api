@@ -2,7 +2,6 @@ const server = require('cnn-server'),
     cors = require('cors'),
     { makeExecutableSchema } = require('graphql-tools'),
     { graphqlExpress, graphiqlExpress } = require('apollo-server-express'),
-    opticsAgent = require('optics-agent'),
     bodyParser = require('body-parser'),
     surrogateCacheControl = process.env.SURROGATE_CACHE_CONTROL || 'max-age=30, stale-while-revalidate=10, stale-if-error=6400',
     cacheControlHeader = process.env.CACHE_CONTROL || 'no-cache',
@@ -38,10 +37,7 @@ function init(appConfig) {
                 path: config.paths.graphql,
                 handler: graphqlExpress(req => {
                     let graphqlConfig = {
-                        schema: executableSchema,
-                        context: {
-                            opticsContext: opticsAgent.context(req)
-                        }
+                        schema: executableSchema
                     };
 
                     if (disableIntrospection) {
@@ -55,10 +51,7 @@ function init(appConfig) {
                 path: config.paths.graphql,
                 handler: graphqlExpress(req => {
                     let graphqlConfig = {
-                        schema: executableSchema,
-                        context: {
-                            opticsContext: opticsAgent.context(req)
-                        }
+                        schema: executableSchema
                     };
 
                     if (disableIntrospection) {
