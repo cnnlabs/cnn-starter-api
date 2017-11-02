@@ -30,7 +30,8 @@ function init(appConfig) {
 
     let middleware = [
             headerMiddleware,
-            bodyParser.json()
+            bodyParser.json(),
+            cors({ origin: '*' })
         ],
         routes = [
             {
