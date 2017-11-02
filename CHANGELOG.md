@@ -1,3 +1,21 @@
+## 2017-11-01, Version 1.8.0, @adslaton
+
+### Notable changes
+
+- Remove the Apollo Optics Agent module
+
+### Known issues
+
+See https://github.com/cnnlabs/cnn-starter-api/labels/defect for complete and
+current list of known issues.
+
+### Commits
+
+* [[`f45fd07184`](https://github.com/cnnlabs/cnn-starter-api/commit/f45fd07184)] - Merge pull request #15 from cnnlabs/feature/rm-optics (A.D. Slaton)
+* [[`55cfa75d33`](https://github.com/cnnlabs/cnn-starter-api/commit/55cfa75d33)] - rm the other reference to optics (A.D. Slaton)
+* [[`c036467ce5`](https://github.com/cnnlabs/cnn-starter-api/commit/c036467ce5)] - rm the now defunct optics agent (A.D. Slaton)
+
+
 ## 2017-11-01, Version 1.7.1, @adslaton
 
 ### Notable changes
