@@ -24,7 +24,6 @@
     "graphql-disable-introspection": "1.0.1",
     "graphql-tools": "2.6.1",
     "graphql-type-json": "0.1.4",
-    "object-assign-deep": "0.3.1",
     "request-promise": "4.2.2"
   },
   "devDependencies": {
