@@ -33,8 +33,7 @@ function init(appConfig) {
 
     let middleware = [
             headerMiddleware,
-            bodyParser.json(),
-            cors({ origin: '*' })
+            bodyParser.json()
         ],
         routes = [
             {
@@ -83,6 +82,9 @@ function init(appConfig) {
     }
 
     // Add middleware
+    if (enableCors) {
+        middleware.push(cors({ origin: '*' }));
+    }
     for (let i = 0; i < config.middleware.length; i++) {
         middleware.push(config.middleware[i]);
     }
