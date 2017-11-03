@@ -1,3 +1,21 @@
+## 2017-11-03, Version 1.10.1, @adslaton
+
+### Notable changes
+
+- Update readme values
+
+### Known issues
+
+See https://github.com/cnnlabs/cnn-starter-api/labels/defect for complete and
+current list of known issues.
+
+### Commits
+
+* [[`1e4c997fb8`](https://github.com/cnnlabs/cnn-starter-api/commit/1e4c997fb8)] - Merge pull request #19 from cnnlabs/feature/readme-update (A.D. Slaton)
+* [[`50bb2e9573`](https://github.com/cnnlabs/cnn-starter-api/commit/50bb2e9573)] - update readme values (A.D. Slaton)
+* [[`a1aafcceeb`](https://github.com/cnnlabs/cnn-starter-api/commit/a1aafcceeb)] - correct changelog (A.D. Slaton)
+
+
 ## 2017-11-03, Version 1.10.0, @adslaton
 
 ### Notable changes
