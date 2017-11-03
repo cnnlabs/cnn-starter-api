@@ -2,7 +2,7 @@
 
 ### Notable changes
 
-- Pass an empty object as the target in object assign
+- Remove the object deep assign module
 
 ### Known issues
 
