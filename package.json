@@ -1,6 +1,6 @@
 {
   "name": "cnn-starter-api",
-  "version": "1.9.1",
+  "version": "1.10.0",
   "description": "Build Graphql APIs in a consistent way",
   "main": "index.js",
   "scripts": {
