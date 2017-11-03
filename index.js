@@ -6,7 +6,7 @@ const server = require('cnn-server'),
     surrogateCacheControl = process.env.SURROGATE_CACHE_CONTROL || 'max-age=30, stale-while-revalidate=10, stale-if-error=6400',
     cacheControlHeader = process.env.CACHE_CONTROL || 'no-cache',
     NoIntrospection = require('graphql-disable-introspection'),
-    defaultConfig = require('./defaults/config.js'),
+    defaultConfig = require('./defaults/config.js')(),
     port = process.env.PORT || '5000';
 
 const disableIntrospection = process.env.NO_INTROSPECTION === 'true';
@@ -18,7 +18,7 @@ const headerMiddleware = (req, res, next) => {
 };
 
 function init(appConfig) {
-    const config = Object.assign({}, defaultConfig(), appConfig),
+    const config = Object.assign({}, defaultConfig, appConfig),
         schemas = config.schemas || require('./defaults/schemas'),
         resolvers = config.resolvers || require('./defaults/resolvers'),
         executableSchema = config.executableSchema || makeExecutableSchema({
@@ -28,8 +28,8 @@ function init(appConfig) {
         configRoutes = config.routes || [];
 
     // Flags
-    const enableCors = config.flags.enableCors,
-        enableGraphiql = config.flags.graphiql;
+    const enableCors = config.enableCors,
+        enableGraphiql = config.enableGraphiql;
 
     let middleware = [
             headerMiddleware,
