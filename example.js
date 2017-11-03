@@ -5,9 +5,7 @@ const { init } = require('./index.js'),
     };
 
 let config = {
-        flags: {
-            graphiql: true
-        },
+        enableGraphiql: true,
         headers: {
             graphiql: '"X-Good": "Yes", "X-Wow": "Indeed"'
         },
@@ -16,7 +14,7 @@ let config = {
         ],
         paths: {
             foo: '/bar'
-        },
+        }
     };
 
 init(config);

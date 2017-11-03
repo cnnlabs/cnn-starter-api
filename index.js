@@ -3,7 +3,6 @@ const server = require('cnn-server'),
     { makeExecutableSchema } = require('graphql-tools'),
     { graphqlExpress, graphiqlExpress } = require('apollo-server-express'),
     bodyParser = require('body-parser'),
-    ObjectAssign = require('object-assign-deep'),
     surrogateCacheControl = process.env.SURROGATE_CACHE_CONTROL || 'max-age=30, stale-while-revalidate=10, stale-if-error=6400',
     cacheControlHeader = process.env.CACHE_CONTROL || 'no-cache',
     NoIntrospection = require('graphql-disable-introspection'),
@@ -19,7 +18,7 @@ const headerMiddleware = (req, res, next) => {
 };
 
 function init(appConfig) {
-    const config = ObjectAssign({}, defaultConfig, appConfig),
+    const config = Object.assign({}, defaultConfig, appConfig),
         schemas = config.schemas || require('./defaults/schemas'),
         resolvers = config.resolvers || require('./defaults/resolvers'),
         executableSchema = config.executableSchema || makeExecutableSchema({
@@ -29,8 +28,8 @@ function init(appConfig) {
         configRoutes = config.routes || [];
 
     // Flags
-    const enableCors = config.flags.cors,
-        enableGraphiql = config.flags.graphiql;
+    const enableCors = config.enableCors,
+        enableGraphiql = config.enableGraphiql;
 
     let middleware = [
             headerMiddleware,
@@ -38,7 +37,7 @@ function init(appConfig) {
         ],
         routes = [
             {
-                path: config.paths.graphql,
+                path: config.paths.graphql || 'graphql',
                 handler: graphqlExpress(req => {
                     let graphqlConfig = {
                         schema: executableSchema
@@ -52,7 +51,7 @@ function init(appConfig) {
                 })
             },
             {
-                path: config.paths.graphql,
+                path: config.paths.graphql || '/graphql',
                 handler: graphqlExpress(req => {
                     let graphqlConfig = {
                         schema: executableSchema
@@ -70,7 +69,7 @@ function init(appConfig) {
 
     if (enableGraphiql) {
         routes.push({
-            path: config.paths.graphiql,
+            path: config.paths.graphiql || '/graphiql',
             handler: graphiqlExpress({
                 endpointURL: config.paths.graphql,
                 passHeader: config.headers.graphiql
