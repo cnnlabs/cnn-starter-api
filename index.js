@@ -19,7 +19,7 @@ const headerMiddleware = (req, res, next) => {
 };
 
 function init(appConfig) {
-    const config = ObjectAssign(defaultConfig, appConfig),
+    const config = ObjectAssign({}, defaultConfig, appConfig),
         schemas = config.schemas || require('./defaults/schemas'),
         resolvers = config.resolvers || require('./defaults/resolvers'),
         executableSchema = config.executableSchema || makeExecutableSchema({
