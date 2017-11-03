@@ -1,3 +1,19 @@
+## 2017-11-02, Version 1.9.1, @adslaton
+
+### Notable changes
+
+- Pass an empty object as the target in object assign
+
+### Known issues
+
+See https://github.com/cnnlabs/cnn-starter-api/labels/defect for complete and
+current list of known issues.
+
+### Commits
+
+* [[`d887a70925`](https://github.com/cnnlabs/cnn-starter-api/commit/d887a70925)] - Merge pull request #17 from cnnlabs/feature/update-object-assign (A.D. Slaton)
+* [[`a1accfb723`](https://github.com/cnnlabs/cnn-starter-api/commit/a1accfb723)] - update the object assign var (A.D. Slaton)
+
 ## 2017-11-02, Version 1.9.0, @adslaton
 
 ### Notable changes
