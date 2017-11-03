@@ -1,6 +1,6 @@
 # CNN Starter API
 
-An API starter package for CNN
+Build Graphql APIs in a consistent way
 
 
 ## Initialize
@@ -88,14 +88,14 @@ $ npm run test
 
 ## Variables and overrides
 
-#### CACHE_CONTROL (Browser caching)
+#### CACHE_CONTROL
 
-default = max-age=60
+default = no-cache
 
 #### NO_INTROSPECTION
 
 default = true
 
-#### SURROGATE_CACHE_CONTROL (Fastly Header)
+#### SURROGATE_CACHE_CONTROL
 
-default = max-age=60, stale-while-revalidate=10, stale-if-error=6400
+default = max-age=30, stale-while-revalidate=10, stale-if-error=6400
