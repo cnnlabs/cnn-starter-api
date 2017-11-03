@@ -17,8 +17,10 @@ init();
 
 ```
 {
-    enableCors: true,
-    enableGraphiql: false,
+    flags: {
+        cors: true,
+        graphiql: false
+    },
     headers: {
         graphiql: '"X-Starter-API": "Started"'
     },

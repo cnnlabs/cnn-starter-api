@@ -13,7 +13,10 @@ let config = {
         },
         middleware: [
             myMiddleware
-        ]
+        ],
+        paths: {
+            foo: '/bar'
+        },
     };
 
 init(config);
