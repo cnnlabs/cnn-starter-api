@@ -1,7 +1,7 @@
 {
   "name": "cnn-starter-api",
   "version": "1.8.0",
-  "description": "Service allows for Graphql APIs to be built in a consistent way",
+  "description": "Build Graphql APIs in a consistent way",
   "main": "index.js",
   "scripts": {
     "test": "node example.js",
