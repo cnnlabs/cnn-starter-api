@@ -1,3 +1,24 @@
+## 2017-11-02, Version 1.9.0, @adslaton
+
+### Notable changes
+
+- Add 2 flags. one flag for cors (default true). one flag for controlling if graphiql is enabled (default false)
+
+### Known issues
+
+See https://github.com/cnnlabs/cnn-starter-api/labels/defect for complete and
+current list of known issues.
+
+### Commits
+
+* [[`046a827942`](https://github.com/cnnlabs/cnn-starter-api/commit/046a827942)] - Merge pull request #16 from cnnlabs/feature/add-graphiql-flag (A.D. Slaton)
+* [[`375472f895`](https://github.com/cnnlabs/cnn-starter-api/commit/375472f895)] - use  instead of Object.assign (A.D. Slaton)
+* [[`c7f69050ee`](https://github.com/cnnlabs/cnn-starter-api/commit/c7f69050ee)] - update the package description to be (A.D. Slaton)
+* [[`4b559c3600`](https://github.com/cnnlabs/cnn-starter-api/commit/4b559c3600)] - change the flag position (A.D. Slaton)
+* [[`f6d58efe72`](https://github.com/cnnlabs/cnn-starter-api/commit/f6d58efe72)] - actually wrap the cors module (A.D. Slaton)
+* [[`e013800a05`](https://github.com/cnnlabs/cnn-starter-api/commit/e013800a05)] - update package description (A.D. Slaton)
+* [[`a53e8e26a9`](https://github.com/cnnlabs/cnn-starter-api/commit/a53e8e26a9)] - add 2 flags. one flag for cors (default true). one flag for controlling if graphiql is enabled (default false) (A.D. Slaton)
+
 ## 2017-11-01, Version 1.8.0, @adslaton
 
 ### Notable changes
