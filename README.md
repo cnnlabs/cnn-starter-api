@@ -17,6 +17,14 @@ init();
 
 ```
 {
+    flags: {
+        cors: true,
+        graphiql: false
+    },
+    headers: {
+        graphiql: '"X-Starter-API": "Started"'
+    },
+    middleware: [],
     paths: {
         graphql: '/graphql',
         graphiql: '/graphiql'

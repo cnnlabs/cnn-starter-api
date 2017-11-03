@@ -5,12 +5,18 @@ const { init } = require('./index.js'),
     };
 
 let config = {
+        flags: {
+            graphiql: true
+        },
         headers: {
             graphiql: '"X-Good": "Yes", "X-Wow": "Indeed"'
         },
         middleware: [
             myMiddleware
-        ]
+        ],
+        paths: {
+            foo: '/bar'
+        },
     };
 
 init(config);

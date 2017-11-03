@@ -3,10 +3,11 @@ const server = require('cnn-server'),
     { makeExecutableSchema } = require('graphql-tools'),
     { graphqlExpress, graphiqlExpress } = require('apollo-server-express'),
     bodyParser = require('body-parser'),
+    ObjectAssign = require('object-assign-deep'),
     surrogateCacheControl = process.env.SURROGATE_CACHE_CONTROL || 'max-age=30, stale-while-revalidate=10, stale-if-error=6400',
     cacheControlHeader = process.env.CACHE_CONTROL || 'no-cache',
     NoIntrospection = require('graphql-disable-introspection'),
-    defaultConfig = require('./defaults/config.js'),
+    defaultConfig = require('./defaults/config.js')(),
     port = process.env.PORT || '5000';
 
 const disableIntrospection = process.env.NO_INTROSPECTION === 'true';
@@ -18,7 +19,7 @@ const headerMiddleware = (req, res, next) => {
 };
 
 function init(appConfig) {
-    const config = Object.assign({}, defaultConfig, appConfig),
+    const config = ObjectAssign(defaultConfig, appConfig),
         schemas = config.schemas || require('./defaults/schemas'),
         resolvers = config.resolvers || require('./defaults/resolvers'),
         executableSchema = config.executableSchema || makeExecutableSchema({
@@ -27,10 +28,13 @@ function init(appConfig) {
         }),
         configRoutes = config.routes || [];
 
+    // Flags
+    const enableCors = config.flags.cors,
+        enableGraphiql = config.flags.graphiql;
+
     let middleware = [
             headerMiddleware,
-            bodyParser.json(),
-            cors({ origin: '*' })
+            bodyParser.json()
         ],
         routes = [
             {
@@ -61,21 +65,27 @@ function init(appConfig) {
                     return graphqlConfig;
                 }),
                 method: 'post'
-            },
-            {
-                path: config.paths.graphiql,
-                handler: graphiqlExpress({
-                    endpointURL: config.paths.graphql,
-                    passHeader: config.headers.graphiql
-                })
             }
         ];
+
+    if (enableGraphiql) {
+        routes.push({
+            path: config.paths.graphiql,
+            handler: graphiqlExpress({
+                endpointURL: config.paths.graphql,
+                passHeader: config.headers.graphiql
+            })
+        });
+    }
 
     for (let i = 0; i < configRoutes.length; i++) {
         routes.push(configRoutes[i]);
     }
 
     // Add middleware
+    if (enableCors) {
+        middleware.push(cors({ origin: '*' }));
+    }
     for (let i = 0; i < config.middleware.length; i++) {
         middleware.push(config.middleware[i]);
     }
