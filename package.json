@@ -4,6 +4,7 @@
   "description": "Build Graphql APIs in a consistent way",
   "main": "index.js",
   "scripts": {
+    "lint": "cnn-birdman -R defaults run javascript",
     "test": "node example.js",
     "changelog": "changelog-maker --group"
   },
@@ -27,6 +28,7 @@
     "request-promise": "4.2.2"
   },
   "devDependencies": {
+    "cnn-birdman": "https://github.com/cnnlabs/cnn-birdman.git",
     "changelog-maker": "2.2.6"
   },
   "engines": {
