@@ -1,3 +1,22 @@
+## 2018-01-02, Version 1.11.0, @adslaton
+
+### Notable changes
+
+- Added linting to project
+- Create /src. moved index.js and defaults to /src
+
+### Known issues
+
+See https://github.com/cnnlabs/cnn-starter-api/labels/defect for complete and
+current list of known issues.
+
+### Commits
+
+* [[`ca72fc119f`](https://github.com/cnnlabs/cnn-starter-api/commit/ca72fc119f)] - Merge pull request #21 from cnnlabs/feature/integrate-with-cnn-starter (A.D. Slaton)
+* [[`b88ad83fb6`](https://github.com/cnnlabs/cnn-starter-api/commit/b88ad83fb6)] - Merge pull request #20 from phapturner/add-linting (A.D. Slaton)
+* [[`ba97463380`](https://github.com/cnnlabs/cnn-starter-api/commit/ba97463380)] - create /src. moved index.js and defaults to /src (A.D.Slaton)
+* [[`013a6791ca`](https://github.com/cnnlabs/cnn-starter-api/commit/013a6791ca)] - added linting to project (pdinh_turner)
+
 ## 2017-11-03, Version 1.10.1, @adslaton
 
 ### Notable changes
