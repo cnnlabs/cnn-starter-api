@@ -1,4 +1,4 @@
-const { init } = require('./index.js'),
+const { init } = require('./src/index.js'),
     myMiddleware = (req, res, next) => {
         res.setHeader('X-APP', 'API Starter Test');
         return next();
@@ -11,10 +11,7 @@ let config = {
         },
         middleware: [
             myMiddleware
-        ],
-        paths: {
-            foo: '/bar'
-        }
+        ]
     };
 
 init(config);
