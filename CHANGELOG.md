@@ -1,3 +1,22 @@
+## 2018-01-03, Version 1.12.0, @adslaton
+
+### Notable changes
+
+- Exporting a create method to conform to cnn-starter-proxy
+- Fixed linting issues
+
+### Known issues
+
+See https://github.com/cnnlabs/cnn-starter-api/labels/defect for complete and
+current list of known issues.
+
+### Commits
+
+* [[`25c72bb9a9`](https://github.com/cnnlabs/cnn-starter-api/commit/25c72bb9a9)] - Merge pull request #22 from phapturner/fix-linting-issues (A.D. Slaton)
+* [[`c101a0f9f9`](https://github.com/cnnlabs/cnn-starter-api/commit/c101a0f9f9)] - Merge pull request #23 from cnnlabs/feature/create-method (A.D. Slaton)
+* [[`77884cd6b2`](https://github.com/cnnlabs/cnn-starter-api/commit/77884cd6b2)] - exporting a create method to conform to cnn-starter-proxy (A.D. Slaton)
+* [[`268cb5808a`](https://github.com/cnnlabs/cnn-starter-api/commit/268cb5808a)] - fixed linting issues (pdinh_turner)
+
 ## 2018-01-02, Version 1.11.0, @adslaton
 
 ### Notable changes
