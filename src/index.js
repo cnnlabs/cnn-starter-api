@@ -6,8 +6,7 @@ const server = require('cnn-server'),
     surrogateCacheControl = process.env.SURROGATE_CACHE_CONTROL || 'max-age=30, stale-while-revalidate=10, stale-if-error=6400',
     cacheControlHeader = process.env.CACHE_CONTROL || 'no-cache',
     NoIntrospection = require('graphql-disable-introspection'),
-    defaultConfig = require('./defaults/config.js')(),
-    port = process.env.PORT || '5000';
+    defaultConfig = require('./defaults/config.js')();
 
 const disableIntrospection = process.env.NO_INTROSPECTION === 'true';
 
@@ -38,7 +37,7 @@ function init(appConfig) {
         routes = [
             {
                 path: config.paths.graphql || 'graphql',
-                handler: graphqlExpress(req => {
+                handler: graphqlExpress(() => {
                     let graphqlConfig = {
                         schema: executableSchema
                     };
@@ -52,7 +51,7 @@ function init(appConfig) {
             },
             {
                 path: config.paths.graphql || '/graphql',
-                handler: graphqlExpress(req => {
+                handler: graphqlExpress(() => {
                     let graphqlConfig = {
                         schema: executableSchema
                     };

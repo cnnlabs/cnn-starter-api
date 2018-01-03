@@ -4,7 +4,7 @@
   "description": "Build Graphql APIs in a consistent way",
   "main": "src/index.js",
   "scripts": {
-    "lint": "cnn-birdman -R defaults run javascript",
+    "lint": "cnn-birdman run javascript",
     "test": "node example.js",
     "changelog": "changelog-maker --group"
   },
