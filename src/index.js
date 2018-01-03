@@ -12,6 +12,10 @@ const log = console;
 
 const scripts = [
     {
+        label: 'Output the changelog since the last release.',
+        value: 'changelog'
+    },
+    {
         label: 'Starts local development environment.',
         value: 'start'
     },
