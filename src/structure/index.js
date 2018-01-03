@@ -102,9 +102,4 @@ function init(appConfig) {
     server(serverConfig);
 }
 
-const create = init;
-
-module.exports = { 
-    init,
-    create
-};
+module.exports = { init };
