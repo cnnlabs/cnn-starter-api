@@ -1,3 +1,19 @@
+## 2018-01-03, Version 1.14.0, @adslaton
+
+### Notable changes
+
+- Update package dependencies
+
+### Known issues
+
+See https://github.com/cnnlabs/cnn-starter-api/labels/defect for complete and
+current list of known issues.
+
+### Commits
+
+* [[`5a9e5969da`](https://github.com/cnnlabs/cnn-starter-api/commit/5a9e5969da)] - Merge pull request #25 from cnnlabs/feature/integrate-cnn-starter-proxy-dep (A.D. Slaton)
+* [[`031bb639b8`](https://github.com/cnnlabs/cnn-starter-api/commit/031bb639b8)] - update dependencies (A.D. Slaton)
+
 ## 2018-01-03, Version 1.13.0, @adslaton
 
 ### Notable changes
