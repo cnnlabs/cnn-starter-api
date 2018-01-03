@@ -1,5 +1,5 @@
 module.exports = {
-    getData(obj, args, context, info) {
+    getData(obj, args) {
         let edition = args.edition || 'domestic',
             type = args.type || 'section',
             id = args.id || '_thisId';
