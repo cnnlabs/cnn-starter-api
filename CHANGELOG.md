@@ -1,3 +1,24 @@
+## 2018-01-03, Version 1.13.0, @adslaton
+
+### Notable changes
+
+- Created src/structure and moved files there
+
+### Known issues
+
+See https://github.com/cnnlabs/cnn-starter-api/labels/defect for complete and
+current list of known issues.
+
+### Commits
+
+* [[`560623b198`](https://github.com/cnnlabs/cnn-starter-api/commit/560623b198)] - Merge pull request #24 from cnnlabs/feature/integrate-cnn-starter-proxy (A.D. Slaton)
+* [[`208b9acc28`](https://github.com/cnnlabs/cnn-starter-api/commit/208b9acc28)] - update main in package.json (A.D. Slaton)
+* [[`f9fe34c0a4`](https://github.com/cnnlabs/cnn-starter-api/commit/f9fe34c0a4)] - recreated .nvmrc in the root (A.D. Slaton)
+* [[`7bfe8bc28a`](https://github.com/cnnlabs/cnn-starter-api/commit/7bfe8bc28a)] - created script for changelog and moved some dot files to src/structure (A.D. Slaton)
+* [[`b88ecc0c86`](https://github.com/cnnlabs/cnn-starter-api/commit/b88ecc0c86)] - create src/index.js to copy files (A.D. Slaton)
+* [[`0ba677dec5`](https://github.com/cnnlabs/cnn-starter-api/commit/0ba677dec5)] - add src/scripts then created lint and start scripts (A.D. Slaton)
+* [[`8772650ce8`](https://github.com/cnnlabs/cnn-starter-api/commit/8772650ce8)] - create src/structure and moved files there (A.D. Slaton)
+
 ## 2018-01-03, Version 1.12.0, @adslaton
 
 ### Notable changes
