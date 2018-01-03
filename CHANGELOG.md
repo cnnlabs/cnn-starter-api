@@ -1,3 +1,19 @@
+## 2018-01-03, Version 1.14.2, @adslaton
+
+### Notable changes
+
+- Move .npmignore to the right place
+
+### Known issues
+
+See https://github.com/cnnlabs/cnn-starter-api/labels/defect for complete and
+current list of known issues.
+
+### Commits
+
+* [[`e5743be11e`](https://github.com/cnnlabs/cnn-starter-api/commit/e5743be11e)] - Merge pull request #27 from cnnlabs/feature/integrate-cnn-starter-proxy-dep (A.D. Slaton)
+* [[`69ceaf1033`](https://github.com/cnnlabs/cnn-starter-api/commit/69ceaf1033)] - move .npmignore to the right place (A.D. Slaton)
+
 ## 2018-01-03, Version 1.14.1, @adslaton
 
 ### Notable changes
