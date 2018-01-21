@@ -2,9 +2,10 @@
   "name": "cnn-starter-api",
   "version": "1.14.2",
   "description": "Build Graphql APIs in a consistent way",
-  "main": "./src/structure/index.js",
+  "main": "./src/structure/server.js",
   "scripts": {
     "lint": "cnn-birdman run javascript",
+    "start": "node ./src/structure/server.js",
     "test": "node example.js",
     "changelog": "changelog-maker --group"
   },

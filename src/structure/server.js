@@ -1,4 +1,4 @@
-const { init } = require('./src/structure/server.js'),
+const { init } = require('./index.js'),
     myMiddleware = (req, res, next) => {
         res.setHeader('X-APP', 'API Starter Test');
         return next();
