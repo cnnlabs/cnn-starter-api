@@ -5,7 +5,6 @@
   "main": "./src/structure/index.js",
   "scripts": {
     "lint": "cnn-birdman run javascript",
-    "start": "node ./src/structure/index.js",
     "test": "node example.js",
     "changelog": "changelog-maker --group"
   },
