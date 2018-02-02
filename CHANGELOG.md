@@ -1,3 +1,19 @@
+## 2018-02-02, Version 1.15.0, @adslaton
+
+### Notable changes
+
+- Add the ability to serve static files
+
+### Known issues
+
+See https://github.com/cnnlabs/cnn-starter-api/labels/defect for complete and
+current list of known issues.
+
+### Commits
+
+* [[`f528df6b6e`](https://github.com/cnnlabs/cnn-starter-api/commit/f528df6b6e)] - Merge pull request #29 from cnnlabs/feature/enable-static (A.D. Slaton)
+* [[`5e60ab247a`](https://github.com/cnnlabs/cnn-starter-api/commit/5e60ab247a)] - addthe ability to serve static files (AD Slaton)
+
 ## 2018-01-03, Version 1.14.2, @adslaton
 
 ### Notable changes
