@@ -28,7 +28,8 @@ function init(appConfig) {
 
     // Flags
     const enableCors = config.enableCors,
-        enableGraphiql = config.enableGraphiql;
+        enableGraphiql = config.enableGraphiql,
+        enableStatic = config.enableStatic;
 
     let middleware = [
             headerMiddleware,
@@ -95,6 +96,7 @@ function init(appConfig) {
             }
         },
         enableCompression: true,
+        enableStatic: enableStatic,
         middleware: middleware,
         routes: routes
     };
