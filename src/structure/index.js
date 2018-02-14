@@ -24,6 +24,7 @@ function init(appConfig) {
             typeDefs: schemas,
             resolvers: resolvers
         }),
+        context = config.context || {};
         configRoutes = config.routes || [];
 
     // Flags
@@ -40,6 +41,7 @@ function init(appConfig) {
                 path: config.paths.graphql || 'graphql',
                 handler: graphqlExpress(() => {
                     let graphqlConfig = {
+                        context: context,
                         schema: executableSchema
                     };
 
@@ -54,6 +56,7 @@ function init(appConfig) {
                 path: config.paths.graphql || '/graphql',
                 handler: graphqlExpress(() => {
                     let graphqlConfig = {
+                        context: context,
                         schema: executableSchema
                     };
 
