@@ -28,7 +28,8 @@ function init(appConfig) {
         contextPerRequest = config.contextPerRequest || {};
 
     // Flags
-    const enableCors = config.enableCors,
+    const enableCompression = config.enableCompression,
+        enableCors = config.enableCors,
         enableGraphiql = config.enableGraphiql,
         enableStatic = config.enableStatic;
 
@@ -83,7 +84,7 @@ function init(appConfig) {
                 logLevel: 'info'
             }
         },
-        enableCompression: true,
+        enableCompression: enableCompression,
         enableStatic: enableStatic,
         middleware: middleware,
         routes: routes
