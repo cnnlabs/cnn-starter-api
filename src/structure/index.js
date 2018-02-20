@@ -24,50 +24,55 @@ function init(appConfig) {
             typeDefs: schemas,
             resolvers: resolvers
         }),
-        context = config.context || {};
         configRoutes = config.routes || [];
+    const contextPerRequest = config.contextPerRequest || {};
+
+    console.log('CNN_STARTER_API:  INIT');
+    console.log('CNN_STARTER_API:  contextPerRequest: ', contextPerRequest);
+    console.log('YES')
 
     // Flags
     const enableCors = config.enableCors,
         enableGraphiql = config.enableGraphiql,
         enableStatic = config.enableStatic;
 
+    const basicRoute = {
+        path: config.paths.graphql || 'graphql',
+        handler: graphqlExpress((req, res) => {
+            let graphqlConfig = {
+                context: contextPerRequest(req, res),
+                // context: {
+                //     addSurrogateKeys: ((keys) => (x) => {
+                //         console.log(`\nWOOHOO!!  req.surrogateKeys: ${req.surrogateKeys}`);
+                //         console.log(`\nWOOHOO!!  addSurrogateKeys: ${x}`);
+                //         // Expects array or string or number
+                //         keys.push(x);
+                //         console.log(`      ---> side-effect --> new keys --> ${keys}\n`);
+                //     })(req.surrogateKeys)
+                // },
+                formatResponse: (response, {context}) => {
+                    console.log(' \n--- +++ --- +++ --- formatResponse\n')
+                    console.log(`response keys: [${Object.keys(response)}]`);
+                    console.log(`context keys:  [${Object.keys(context)}]`)
+                    //response.setHeader('foo', 'BAAAAAAAAAR')
+                    return response;
+                },
+                schema: executableSchema
+            };
+
+            if (disableIntrospection) {
+                graphqlConfig.validationRules = [NoIntrospection];
+            }
+
+            return graphqlConfig;
+        })
+    }
+
+    const routes = ['get', 'post'].map(meth => Object.assign({}, basicRoute, {method: meth}));
+
     let middleware = [
             headerMiddleware,
             bodyParser.json()
-        ],
-        routes = [
-            {
-                path: config.paths.graphql || 'graphql',
-                handler: graphqlExpress(() => {
-                    let graphqlConfig = {
-                        context: context,
-                        schema: executableSchema
-                    };
-
-                    if (disableIntrospection) {
-                        graphqlConfig.validationRules = [NoIntrospection];
-                    }
-
-                    return graphqlConfig;
-                })
-            },
-            {
-                path: config.paths.graphql || '/graphql',
-                handler: graphqlExpress(() => {
-                    let graphqlConfig = {
-                        context: context,
-                        schema: executableSchema
-                    };
-
-                    if (disableIntrospection) {
-                        graphqlConfig.validationRules = [NoIntrospection];
-                    }
-
-                    return graphqlConfig;
-                }),
-                method: 'post'
-            }
         ];
 
     if (enableGraphiql) {
