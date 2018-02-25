@@ -1,3 +1,19 @@
+## 2018-02-25, Version 1.16.1, @adslaton
+
+### Notable changes
+
+- Adjustments for cnn-starter integration
+
+### Known issues
+
+See https://github.com/cnnlabs/cnn-starter-api/labels/defect for complete and
+current list of known issues.
+
+### Commits
+
+* [[`e86a0e19c9`](https://github.com/cnnlabs/cnn-starter-api/commit/e86a0e19c9)] - Merge pull request #32 from cnnlabs/fix/adjust-cnn-starter-integration (A.D. Slaton)
+* [[`5773998b53`](https://github.com/cnnlabs/cnn-starter-api/commit/5773998b53)] - adjustments for cnn-starter integration (AD Slaton)
+
 ## 2018-02-25, Version 1.16.0, @adslaton
 
 ### Notable changes
