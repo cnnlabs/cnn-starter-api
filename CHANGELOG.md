@@ -1,3 +1,24 @@
+## 2018-02-25, Version 1.16.0, @adslaton
+
+### Notable changes
+
+- Support contextPerRequest
+- Make enableCompression configurable; default to false
+- Snyk fixes
+
+### Known issues
+
+See https://github.com/cnnlabs/cnn-starter-api/labels/defect for complete and
+current list of known issues.
+
+### Commits
+
+* [[`7008ab39cf`](https://github.com/cnnlabs/cnn-starter-api/commit/7008ab39cf)] - Merge pull request #30 from cnnlabs/snyk-fix-53b8e402 (A.D. Slaton)
+* [[`5eb013ccf7`](https://github.com/cnnlabs/cnn-starter-api/commit/5eb013ccf7)] - Merge pull request #31 from cnnlabs/feature/context-per-request (A.D. Slaton)
+* [[`b1eab6b8aa`](https://github.com/cnnlabs/cnn-starter-api/commit/b1eab6b8aa)] - make enableCompression configurable; default to false (Steve Breeser)
+* [[`1c0ef9e6c8`](https://github.com/cnnlabs/cnn-starter-api/commit/1c0ef9e6c8)] - support contextPerRequest (Steve Breeser)
+* [[`ab8de44939`](https://github.com/cnnlabs/cnn-starter-api/commit/ab8de44939)] - **fix**: package.json to reduce vulnerabilities (snyk-bot)
+
 ## 2018-02-02, Version 1.15.0, @adslaton
 
 ### Notable changes
