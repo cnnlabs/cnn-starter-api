@@ -3,6 +3,12 @@
   "version": "1.16.0",
   "description": "Build Graphql APIs in a consistent way",
   "main": "./src/structure/index.js",
+  "private": true,
+  "license": "Apache-2.0",
+  "author": "A.D. Slaton <ad.slaton@turner.com>",
+  "bin": {
+    "cnn-starter-api": "./src/scripts/index.js"
+  },
   "scripts": {
     "lint": "cnn-birdman run javascript",
     "test": "node example.js",
