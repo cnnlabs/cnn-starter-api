@@ -1,5 +1,6 @@
 module.exports = () => {
     let config = {
+        enableCompression: false,
         enableCors: true,
         enableGraphiql: ((process.env.ENABLE_GRAPHIQL ? process.env.ENABLE_GRAPHIQL.toLowerCase() : '') === 'true'),
         headers: {

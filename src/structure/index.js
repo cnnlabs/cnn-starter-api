@@ -24,47 +24,36 @@ function init(appConfig) {
             typeDefs: schemas,
             resolvers: resolvers
         }),
-        configRoutes = config.routes || [];
+        configRoutes = config.routes || [],
+        contextPerRequest = config.contextPerRequest || {};
 
     // Flags
-    const enableCors = config.enableCors,
+    const enableCompression = config.enableCompression,
+        enableCors = config.enableCors,
         enableGraphiql = config.enableGraphiql,
         enableStatic = config.enableStatic;
 
-    let middleware = [
+    const basicRoute = {
+        path: config.paths.graphql || 'graphql',
+        handler: graphqlExpress((req, res) => {
+            let graphqlConfig = {
+                context: contextPerRequest(req, res),
+                schema: executableSchema
+            };
+
+            if (disableIntrospection) {
+                graphqlConfig.validationRules = [NoIntrospection];
+            }
+
+            return graphqlConfig;
+        })
+    }
+
+    const routes = ['get', 'post'].map(meth => Object.assign({}, basicRoute, {method: meth}));
+
+    const middleware = [
             headerMiddleware,
             bodyParser.json()
-        ],
-        routes = [
-            {
-                path: config.paths.graphql || 'graphql',
-                handler: graphqlExpress(() => {
-                    let graphqlConfig = {
-                        schema: executableSchema
-                    };
-
-                    if (disableIntrospection) {
-                        graphqlConfig.validationRules = [NoIntrospection];
-                    }
-
-                    return graphqlConfig;
-                })
-            },
-            {
-                path: config.paths.graphql || '/graphql',
-                handler: graphqlExpress(() => {
-                    let graphqlConfig = {
-                        schema: executableSchema
-                    };
-
-                    if (disableIntrospection) {
-                        graphqlConfig.validationRules = [NoIntrospection];
-                    }
-
-                    return graphqlConfig;
-                }),
-                method: 'post'
-            }
         ];
 
     if (enableGraphiql) {
@@ -95,7 +84,7 @@ function init(appConfig) {
                 logLevel: 'info'
             }
         },
-        enableCompression: true,
+        enableCompression: enableCompression,
         enableStatic: enableStatic,
         middleware: middleware,
         routes: routes
