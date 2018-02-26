@@ -25,7 +25,7 @@ function init(appConfig) {
             resolvers: resolvers
         }),
         configRoutes = config.routes || [],
-        contextPerRequest = config.contextPerRequest || {};
+        contextPerRequest = config.contextPerRequest || ((req, res) => ({}));
 
     // Flags
     const enableCompression = config.enableCompression,
