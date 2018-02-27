@@ -1,3 +1,19 @@
+## 2018-02-26, Version 1.16.2, @adslaton
+
+### Notable changes
+
+- Default contextPerRequest to a function
+
+### Known issues
+
+See https://github.com/cnnlabs/cnn-starter-api/labels/defect for complete and
+current list of known issues.
+
+### Commits
+
+* [[`fe5ed13a63`](https://github.com/cnnlabs/cnn-starter-api/commit/fe5ed13a63)] - Merge pull request #33 from cnnlabs/bug/contextperrequest-is-a-function (A.D. Slaton)
+* [[`26a89b98a4`](https://github.com/cnnlabs/cnn-starter-api/commit/26a89b98a4)] - default contextPerRequest to a function returning {} (Steve Breeser)
+
 ## 2018-02-25, Version 1.16.1, @adslaton
 
 ### Notable changes
