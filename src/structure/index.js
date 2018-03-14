@@ -1,6 +1,7 @@
 const server = require('cnn-server'),
     cors = require('cors'),
     { makeExecutableSchema } = require('graphql-tools'),
+    { ApolloEngine } = require('apollo-engine'),
     { graphqlExpress, graphiqlExpress } = require('apollo-server-express'),
     bodyParser = require('body-parser'),
     surrogateCacheControl = process.env.SURROGATE_CACHE_CONTROL || 'max-age=30, stale-while-revalidate=10, stale-if-error=6400',
@@ -43,6 +44,11 @@ function init(appConfig) {
 
             if (disableIntrospection) {
                 graphqlConfig.validationRules = [NoIntrospection];
+            }
+
+            if (process.env.ENABLE_ENGINE === 'true') {
+                graphqlConfig.cacheControl = true;
+                graphqlConfig.tracing = true;
             }
 
             return graphqlConfig;
@@ -90,7 +96,18 @@ function init(appConfig) {
         routes: routes
     };
 
-    server(serverConfig);
+    server(serverConfig, (app, express) => {
+        if (process.env.ENABLE_ENGINE === 'true') {
+            const engine = new ApolloEngine({
+                apiKey: 'service:turnercode-4096:BFEiXMBhV9Tdqwh3uR6lCQ'
+            });
+
+            engine.listen({
+                port: process.env.ENGINE_PORT || 5001,
+                expressApp: app
+            });
+        }
+    });
 }
 
 module.exports = { init };
