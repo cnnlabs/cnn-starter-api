@@ -97,13 +97,23 @@ function init(appConfig) {
     };
 
     server(serverConfig, (app, express) => {
-        if (process.env.ENABLE_ENGINE === 'true') {
+        const {
+            ENABLE_ENGINE,
+            ENGINE_API_KEY,
+            ENGINE_PORT = 5001
+        } = process.env;
+
+        if (
+            ENABLE_ENGINE === 'true' &&
+            ENGINE_API_KEY &&
+            ENGINE_API_KEY !== ''
+        ) {
             const engine = new ApolloEngine({
-                apiKey: 'service:turnercode-4096:BFEiXMBhV9Tdqwh3uR6lCQ'
+                apiKey: ENGINE_API_KEY
             });
 
             engine.listen({
-                port: process.env.ENGINE_PORT || 5001,
+                port: ENGINE_PORT,
                 expressApp: app
             });
         }
