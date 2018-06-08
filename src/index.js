@@ -81,7 +81,7 @@ function updatePackageJSON(root, callback) {
     packageJSON.devDependencies = packageJSON.devDependencies || {};
     packageJSON.scripts = scripts.reduce((acc, curr) => {
         if (curr.value) {
-            acc[curr.value] = `cnn-starter-app ${curr.value}`;
+            acc[curr.value] = `cnn-starter-api ${curr.value}`;
         }
         return acc;
     }, {});
