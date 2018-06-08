@@ -8,7 +8,7 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 const command = 'node';
 const args = [
-    resolve(process.cwd(), 'index.js')
+    resolve(process.cwd(), 'server.js')
 ];
 
 const child = spawn(command, args, { stdio: 'inherit' });
