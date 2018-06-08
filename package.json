@@ -1,6 +1,6 @@
 {
   "name": "cnn-starter-api",
-  "version": "1.17.0",
+  "version": "1.18.0",
   "description": "Build Graphql APIs in a consistent way",
   "main": "./src/structure/index.js",
   "license": "Apache-2.0",

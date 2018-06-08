@@ -1,3 +1,20 @@
+
+## 2018-06-08, Version 1.18.0, @mtcrutch
+
+### Notable changes
+
+- Fix bin namespace within `package.json` script blocks
+- Fix `npm run start` to properly initialize application during development
+
+### Known issues
+
+See https://github.com/cnnlabs/cnn-starter-api/labels/defect for complete and
+current list of known issues.
+
+### Commits
+
+* [[`a93dd68755`](https://github.com/cnnlabs/cnn-starter-api/commit/a93dd68755)] - **fix**: fix start and bin namespace (#36) (Matthew Crutchfield)
+
 ## 2018-05-09, Version 1.17.0, @adslaton
 
 ### Notable changes
