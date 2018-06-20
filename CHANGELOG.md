@@ -1,4 +1,35 @@
-## 2018-02-26, Version 1.16.2, @adslaton
+
+## 2018-06-08, Version 1.18.0, @mtcrutch
+
+### Notable changes
+
+- Fix bin namespace within `package.json` script blocks
+- Fix `npm run start` to properly initialize application during development
+
+### Known issues
+
+See https://github.com/cnnlabs/cnn-starter-api/labels/defect for complete and
+current list of known issues.
+
+### Commits
+
+* [[`a93dd68755`](https://github.com/cnnlabs/cnn-starter-api/commit/a93dd68755)] - **fix**: fix start and bin namespace (#36) (Matthew Crutchfield)
+
+## 2018-05-09, Version 1.17.0, @adslaton
+
+### Notable changes
+
+- Server version for proper logging
+
+### Known issues
+
+See https://github.com/cnnlabs/cnn-starter-api/labels/defect for complete and
+current list of known issues.
+
+### Commits
+
+* [[`e54bb80ba3`](https://github.com/cnnlabs/cnn-starter-api/commit/e54bb80ba3)] - Merge pull request #35 from cnnlabs/bump-server (A.D. Slaton)
+* [[`7ed2ae7b70`](https://github.com/cnnlabs/cnn-starter-api/commit/7ed2ae7b70)] - **fix**: server version for proper logging (Matt Crutchfield)
 
 ### Notable changes
 
