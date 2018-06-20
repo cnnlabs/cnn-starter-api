@@ -4,7 +4,6 @@ const path = require('path');
 const spawn = require('child_process').spawn;
 const execSync = require('child_process').execSync;
 const fse = require('fs-extra');
-const inquirer = require('inquirer');
 const chalk = require('chalk');
 const Table = require('cli-table');
 
