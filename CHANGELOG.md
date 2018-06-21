@@ -1,4 +1,22 @@
 
+## 2018-06-21, Version 1.19.0, @adslaton
+
+### Notable changes
+
+- Update node dependencies
+
+### Known issues
+
+See https://github.com/cnnlabs/cnn-starter-api/labels/defect for complete and
+current list of known issues.
+
+### Commits
+
+* [[`17c850635b`](https://github.com/cnnlabs/cnn-starter-api/commit/17c850635b)] - Merge pull request #37 from cnnlabs/maintenance-updates (A.D. Slaton)
+* [[`5a24e247be`](https://github.com/cnnlabs/cnn-starter-api/commit/5a24e247be)] - update node dependencies (AD Slaton)
+* [[`f8393c5a9f`](https://github.com/cnnlabs/cnn-starter-api/commit/f8393c5a9f)] - 1.18.0 release (Matt Crutchfield)
+* [[`a93dd68755`](https://github.com/cnnlabs/cnn-starter-api/commit/a93dd68755)] - **fix**: fix start and bin namespace (#36) (Matthew Crutchfield)
+
 ## 2018-06-08, Version 1.18.0, @mtcrutch
 
 ### Notable changes
