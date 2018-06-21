@@ -1,3 +1,19 @@
+## 2018-06-21, Version 1.20.0, @adslaton
+
+### Notable changes
+
+- Integrate Apollo Engine
+
+### Known issues
+
+See https://github.com/cnnlabs/cnn-starter-api/labels/defect for complete and
+current list of known issues.
+
+### Commits
+
+* [[`e7085f1f65`](https://github.com/cnnlabs/cnn-starter-api/commit/e7085f1f65)] - Merge pull request #34 from cnnlabs/feature/apollo-engine (A.D. Slaton)
+* [[`307068b326`](https://github.com/cnnlabs/cnn-starter-api/commit/307068b326)] - resolve merge conflicts (AD Slaton)
+* [[`e35442e884`](https://github.com/cnnlabs/cnn-starter-api/commit/e35442e884)] - 1.19 (AD Slaton)
 
 ## 2018-06-21, Version 1.19.0, @adslaton
 
