@@ -1,3 +1,18 @@
+## 2018-06-21, Version 1.20.1, @adslaton
+
+### Notable changes
+
+- Actually add the Apollo Engine module
+
+### Known issues
+
+See https://github.com/cnnlabs/cnn-starter-api/labels/defect for complete and
+current list of known issues.
+
+### Commits
+
+* [[`e0fa8352c5`](https://github.com/cnnlabs/cnn-starter-api/commit/e0fa8352c5)] - 1.20.1 - include apollo-engine (AD Slaton)
+
 ## 2018-06-21, Version 1.20.0, @adslaton
 
 ### Notable changes
