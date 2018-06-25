@@ -1,3 +1,20 @@
+## 2018-06-25, Version 1.21.0, @adslaton
+
+### Notable changes
+
+- Add hapi as a option
+
+### Known issues
+
+See https://github.com/cnnlabs/cnn-starter-api/labels/defect for complete and
+current list of known issues.
+
+### Commits
+
+* [[`8c012c1560`](https://github.com/cnnlabs/cnn-starter-api/commit/8c012c1560)] - Merge pull request #38 from cnnlabs/AddHapi (A.D. Slaton)
+* [[`2a4d915b04`](https://github.com/cnnlabs/cnn-starter-api/commit/2a4d915b04)] - update example.js (AD Slaton)
+* [[`278fad5025`](https://github.com/cnnlabs/cnn-starter-api/commit/278fad5025)] - Add an option to generate a Hapi API
+
 ## 2018-06-21, Version 1.20.1, @adslaton
 
 ### Notable changes
