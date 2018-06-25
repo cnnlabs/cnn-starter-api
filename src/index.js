@@ -6,6 +6,7 @@ const execSync = require('child_process').execSync;
 const fse = require('fs-extra');
 const chalk = require('chalk');
 const Table = require('cli-table');
+const inquirer = require('inquirer');
 
 const log = console;
 
@@ -107,9 +108,9 @@ function renameNPMIgnore(root, callback) {
  * @param {Function} callback - Next step in the pipeline
  * @return {undefined}
  */
-function copyTemplateFiles(root, type, callback) {
+function copyTemplateFiles(root, type, callback, prompt) {
     // Source: Template files
-    const src = path.join(root, 'node_modules', type, 'src', 'structure');
+    const src = path.join(root, 'node_modules', type, 'src', prompt.framework, 'structure');
     // Destination: project-root/src
     const dest = path.join(root);
     // Inform the user whats going on
@@ -124,8 +125,20 @@ function create(root, type) {
     const step3 = updatePackageJSON.bind(null, root, step4);
     const step2 = renameNPMIgnore.bind(null, root, step3);
     const step1 = copyTemplateFiles.bind(null, root, type, step2);
-
-    step1();
+    const types = [{
+        name: 'GraphQL',
+        value: 'graphql'
+    },{
+        name: 'Hapi',
+        value: 'hapi'
+    }];
+    inquirer.prompt([{
+        type: 'list',
+        name: 'framework',
+        message: 'What type of framework do you want to use?',
+        default: types[0],
+        choices: types
+    }]).then(step1);
 }
 
 module.exports = {
