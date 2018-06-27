@@ -1,3 +1,23 @@
+## 2018-06-27, Version 1.21.1, @adslaton
+
+### Notable changes
+
+- Same inquirer dep as cnn-starter-proxy
+
+### Known issues
+
+See https://github.com/cnnlabs/cnn-starter-api/labels/defect for complete and
+current list of known issues.
+
+### Commits
+
+* [[`c5a82bcbec`](https://github.com/cnnlabs/cnn-starter-api/commit/c5a82bcbec)] - Merge pull request #39 from cnnlabs/missingDep (A.D. Slaton)
+* [[`70dbe338c2`](https://github.com/cnnlabs/cnn-starter-api/commit/70dbe338c2)] - Undo version bump
+* [[`f6966f2f1d`](https://github.com/cnnlabs/cnn-starter-api/commit/f6966f2f1d)] - Bump for missing dependency
+* [[`26578fe6c2`](https://github.com/cnnlabs/cnn-starter-api/commit/26578fe6c2)] - Same inquirer dep as cnn-starter-proxy
+* [[`49ef9133cd`](https://github.com/cnnlabs/cnn-starter-api/commit/49ef9133cd)] - Add missing dependency
+* [[`641f52e988`](https://github.com/cnnlabs/cnn-starter-api/commit/641f52e988)] - 1.21 (AD Slaton)
+
 ## 2018-06-25, Version 1.21.0, @adslaton
 
 ### Notable changes
