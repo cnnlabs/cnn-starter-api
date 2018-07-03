@@ -27,7 +27,7 @@
     "cli-table": "0.3.1",
     "cnn-birdman": "https://github.com/cnnlabs/cnn-birdman.git",
     "cnn-metrics": "0.5.0",
-    "cnn-server": "https://github.com/cnnlabs/cnn-server.git#0.5.2",
+    "cnn-server": "https://github.com/cnnlabs/cnn-server.git#0.6.0",
     "cors": "2.8.4",
     "express": "4.16.3",
     "fs-extra": "6.0.1",
