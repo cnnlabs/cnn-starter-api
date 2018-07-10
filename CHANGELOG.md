@@ -1,3 +1,22 @@
+## 2018-06-27, Version 1.21.2, @adslaton
+
+### Notable changes
+
+- Correct package.json main file path
+
+### Known issues
+
+See https://github.com/cnnlabs/cnn-starter-api/labels/defect for complete and
+current list of known issues.
+
+### Commits
+
+* [[`4c6e531f24`](https://github.com/cnnlabs/cnn-starter-api/commit/4c6e531f24)] - Merge pull request #41 from cnnlabs/update-npm-main (A.D. Slaton)
+* [[`bfba473472`](https://github.com/cnnlabs/cnn-starter-api/commit/bfba473472)] - correct npm main (AD Slaton)
+* [[`b9a1e0e92b`](https://github.com/cnnlabs/cnn-starter-api/commit/b9a1e0e92b)] - Merge pull request #40 from cnnlabs/feature/VT-652 (BradAtTurner)
+* [[`5570fa83b4`](https://github.com/cnnlabs/cnn-starter-api/commit/5570fa83b4)] - bump cnn-server version (Brad Alger)
+
+
 ## 2018-06-27, Version 1.21.1, @adslaton
 
 ### Notable changes
