@@ -1,3 +1,5 @@
+## 2018-06-27, Version 1.22.0, @adslaton
+
 ## 2018-06-27, Version 1.21.2, @adslaton
 
 ### Notable changes
