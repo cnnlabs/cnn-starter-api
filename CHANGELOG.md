@@ -1,4 +1,20 @@
-## 2018-06-27, Version 1.22.0, @adslaton
+## 2018-08-11, Version 1.22.0, @adslaton
+
+### Notable changes
+
+- Maintenance updates
+
+### Known issues
+
+See https://github.com/cnnlabs/cnn-starter-api/labels/defect for complete and
+current list of known issues.
+
+### Commits
+
+* [[`cefade3d80`](https://github.com/cnnlabs/cnn-starter-api/commit/cefade3d80)] -Merge pull request #43 from cnnlabs/maintenance (A.D. Slaton)
+* [[`fc8036a3c9`](https://github.com/cnnlabs/cnn-starter-api/commit/fc8036a3c9)] -package dep bump (AD Slaton)
+* [[`9297da7c30`](https://github.com/cnnlabs/cnn-starter-api/commit/9297da7c30)] -Merge pull request #42 from cnnlabs/bump-server-dep (BradAtTurner)
+* [[`deaaca0aeb`](https://github.com/cnnlabs/cnn-starter-api/commit/deaaca0aeb)] -**VT-652**: bump cnn-server version for no-auth on healthcheck (Brad Alger)
 
 ## 2018-06-27, Version 1.21.2, @adslaton
 
