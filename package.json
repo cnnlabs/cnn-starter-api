@@ -19,8 +19,8 @@
   },
   "dependencies": {
     "apollo-engine": "1.1.2",
-    "apollo-server-express": "2.0.6",
-    "apollo-server-hapi": "2.0.6",
+    "apollo-server-express": "1.3.6",
+    "apollo-server-hapi": "1.3.6",
     "body-parser": "1.18.3",
     "chalk": "2.4.1",
     "changelog-maker": "2.2.7",

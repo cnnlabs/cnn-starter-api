@@ -100,7 +100,7 @@ function init(appConfig) {
         const {
             ENABLE_ENGINE,
             ENGINE_API_KEY,
-            ENGINE_PORT = 5001
+            ENGINE_PORT
         } = process.env;
 
         if (
@@ -114,7 +114,8 @@ function init(appConfig) {
 
             engine.listen({
                 port: ENGINE_PORT,
-                expressApp: app
+                expressApp: app,
+                graphqlPaths: [config.paths.graphql || 'graphql']
             });
         }
     });
