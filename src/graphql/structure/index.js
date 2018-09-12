@@ -100,7 +100,7 @@ function init(appConfig) {
         const {
             ENABLE_ENGINE,
             ENGINE_API_KEY,
-            ENGINE_PORT
+            ENGINE_PORT = 5001
         } = process.env;
 
         if (
