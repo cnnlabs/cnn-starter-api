@@ -114,8 +114,7 @@ function init(appConfig) {
 
             engine.listen({
                 port: ENGINE_PORT,
-                expressApp: app,
-                graphqlPaths: [config.paths.graphql || 'graphql']
+                expressApp: app
             });
         }
     });
