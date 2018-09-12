@@ -1,3 +1,22 @@
+## 2018-08-12, Version 1.22.1, @adslaton
+
+### Notable changes
+
+- Revert back to Apollo Server 1
+
+### Known issues
+
+See https://github.com/cnnlabs/cnn-starter-api/labels/defect for complete and
+current list of known issues.
+
+### Commits
+
+* [[`cdfb550fe9`](https://github.com/cnnlabs/cnn-starter-api/commit/cdfb550fe9)] - Merge pull request #44 from cnnlabs/apollo-server-1 (A.D. Slaton)
+* [[`ce69dad166`](https://github.com/cnnlabs/cnn-starter-api/commit/ce69dad166)] - rm graphqlpaths (AD Slaton)
+* [[`9941c97226`](https://github.com/cnnlabs/cnn-starter-api/commit/9941c97226)] - add engine port default back (AD Slaton)
+* [[`19234f5e29`](https://github.com/cnnlabs/cnn-starter-api/commit/19234f5e29)] - switch back toapollo server 1 (AD Slaton)
+* [[`0b18ba67bf`](https://github.com/cnnlabs/cnn-starter-api/commit/0b18ba67bf)] - update changelog title for release 1.22.0 (AD Slaton)
+
 ## 2018-08-11, Version 1.22.0, @adslaton
 
 ### Notable changes
